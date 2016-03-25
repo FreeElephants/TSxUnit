@@ -1,6 +1,5 @@
 Steps for build and run tests:
-1. Get tsc tools:
-    npm install -g typescript tsd
+1. Get tsc tools:npm install -g typescript tsd
 2. Get node definitions
     tsd install
 2. Build launcher builder =)
