@@ -1,0 +1,14 @@
+{
+  "name": "ts-x-unit",
+  "version": "0.0.1",
+  "repository": "https://gitlab.com/FreeElephants/TSxUnit",
+  "description": "xUnit for TypeScript projects",
+  "main": "''",
+  "keywords": [
+    "xUnit",
+    "ts",
+    "typescript"
+  ],
+  "author": "samizdam",
+  "license": "BSD-2-Clause"
+}

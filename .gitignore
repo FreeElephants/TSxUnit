@@ -1,0 +1,12 @@
+# IDE
+.idea
+
+# vendors
+node_modules
+typings
+
+# compiled output
+out.js
+out.js.map
+tests/LaunchMap.ts
+bin

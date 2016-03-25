@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "target": "es3",
+    "out": "out.js",
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules",
+    "bin",
+    "src/launch-builder.ts"
+  ]
+}
