@@ -14,6 +14,7 @@ namespace FreeElephants.TSxUnit {
         private printer:PrinterInterface;
         private numberOfPassed = 0;
         private numberOfFailed = 0;
+        private numberOfErrors = 0;
 
         public constructor(private map:LaunchMapInterface, output = 'console') {
             var printerFactory = new PrinterFactory();
@@ -28,7 +29,11 @@ namespace FreeElephants.TSxUnit {
                 this.runTestCase(testCase);
             }
 
-            return this.numberOfFailed;
+            return this.getExitCode();
+        }
+
+        private getExitCode():number {
+            return this.numberOfFailed + this.numberOfErrors;
         }
 
         private debug(msg, context = ''):void {
@@ -49,24 +54,32 @@ namespace FreeElephants.TSxUnit {
             var testCasePrototype = testCase.constructor.prototype;
             var testMethods = Object.getOwnPropertyNames(testCasePrototype)
                 .filter(function (propName:string) {
-                    var candidate:Function = testCasePrototype[propName];
-                    return typeof candidate === 'function' && propName.match(/^test/);
-                });
+                    var candidate = testCasePrototype[propName];
+                    return typeof candidate === 'function' && this.isTestMethod(propName);
+                }, this);
             return testMethods;
+        }
 
+        private isTestMethod(methodName:string):boolean {
+            return methodName.match(/^test/).length === 1;
         }
 
 
         protected runTestCaseMethod(testCase:TestCase, methodName:string) {
-            this.debug("run test " + testCase.constructor.name + ":" + methodName);
+            this.debug("run test " + Object.getPrototypeOf(testCase) + ":" + methodName);
             testCase.setUp();
             try {
                 testCase[methodName]();
                 this.numberOfPassed++;
                 this.printer.printSuccess();
-            } catch (e:FailedAssertionException) {
-                this.printer.printFail();
-                this.numberOfFailed++;
+            } catch (e) {
+                if(e instanceof FailedAssertionException){
+                    this.printer.printFail();
+                    this.numberOfFailed++;
+                } else {
+                    this.printer.printError();
+                    this.numberOfFailed++;
+                }
             }
             testCase.tearDown();
         }

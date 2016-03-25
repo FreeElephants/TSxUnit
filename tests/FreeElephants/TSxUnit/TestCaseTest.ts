@@ -6,7 +6,7 @@ namespace FreeElephants.TSxUnit {
         public bar;
         private foo;
 
-        protected setUp() {
+        public setUp() {
             this.foo = 'bar';
         }
 

@@ -1,6 +1,7 @@
 namespace FreeElephants.TSxUnit.Printer {
     export interface PrinterInterface {
-        printSuccess();
-        printFail();
+        printSuccess():void;
+        printFail():void;
+        printError():void;
     }
 }
