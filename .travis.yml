@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+    - "5"
+
+install:
+    - "npm install typescript tsd"
+    - "tsd install"
+
+script:
+    - "tsc @tsxunit-launch-builder.config"
+    - "node bin/launch-builder.js tests/"
+    - "tsc"
+    - "node out.js"
