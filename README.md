@@ -1,5 +1,5 @@
 # TSxUnit
-> Becouse we can
+> Because we can
 
 ## Steps for build and run tests:
 
