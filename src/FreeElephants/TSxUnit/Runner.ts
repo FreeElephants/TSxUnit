@@ -1,6 +1,7 @@
 ///<reference path="Printer/PrinterFactory.ts"/>
 ///<reference path="Printer/PrinterInterface.ts"/>
 ///<reference path="Printer/PrinterType.ts"/>
+///<reference path="Assert/FailedAssertionException.ts"/>
 
 namespace FreeElephants.TSxUnit {
     import FailedAssertionException = FreeElephants.TSxUnit.Assert.FailedAssertionException;
@@ -61,7 +62,7 @@ namespace FreeElephants.TSxUnit {
         }
 
         private isTestMethod(methodName:string):boolean {
-            return methodName.match(/^test/).length === 1;
+            return methodName.substring(0, 4) === 'test';
         }
 
 
