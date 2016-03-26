@@ -1,0 +1,7 @@
+{
+  "name": "ts-x-unit",
+  "version": false,
+  "ambientDependencies": {
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#cc3d223a946f661eff871787edeb0fcb8f0db156"
+  }
+}

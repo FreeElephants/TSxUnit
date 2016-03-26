@@ -4,9 +4,9 @@
 ## Steps for build and run tests:
 
 1. Get tsc tools:     
-    `npm install -g typescript tsd `
+    `npm install -g typescript typings `
 2. Get node definitions  
-    `tsd install`
+    `typings install`
 3. Build launcher builder =)  
     `tsc @tsxunit-launch-builder.config`
 4. Run it  
@@ -16,10 +16,8 @@
 6. Run compiled out  
     `node out.js`
 
-
 ## TODO:
 * more assertions
 * more reports
 * more tests
 * think about distribution for usage in client projects
-* migrate from deprecated tsd to typings O_o
