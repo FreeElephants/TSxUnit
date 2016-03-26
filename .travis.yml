@@ -1,4 +1,12 @@
 language: node_js
-
 node_js:
-    - "5.1"
+    - "5"
+
+install:
+    - "npm typings install"
+
+before_script:
+    - "npm run build"
+
+script:
+    - "npm test"

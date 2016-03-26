@@ -6,11 +6,8 @@
   "scripts": {
     "tsc": "tsc",
     "typings": "typings",
-
     "postinstall": "typings install",
-
     "build": "tsc @tsxunit-build.config",
-
     "pretest": "tsc @tsxunit-launch-builder.config && node bin/launch-builder.js tests/ && tsc",
     "test": "node out.js"
   },
@@ -24,5 +21,9 @@
     "typescript"
   ],
   "author": "samizdam",
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "typescript": "^1.8.9",
+    "typings": "^0.7.9"
+  }
 }
