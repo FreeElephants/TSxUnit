@@ -8,6 +8,7 @@
   "exclude": [
     "node_modules",
     "bin",
+    "build",
     "src/launch-builder.ts",
     "typings/browser.d.ts",
     "typings/browser"

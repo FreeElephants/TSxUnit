@@ -4,10 +4,14 @@
   "repository": "https://gitlab.com/FreeElephants/TSxUnit",
   "description": "xUnit for TypeScript projects",
   "scripts": {
+    "build": "tsc @tsxunit-build.config",
     "pretest": "tsc @tsxunit-launch-builder.config && node bin/launch-builder.js tests/ && tsc",
     "test": "node out.js"
   },
-  "main": "''",
+  "main": "build/index.js",
+  "typescript": {
+    "definition": "build/index.d.ts"
+  },
   "keywords": [
     "xUnit",
     "ts",
