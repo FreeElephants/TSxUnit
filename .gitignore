@@ -10,3 +10,6 @@ out.js
 out.js.map
 tests/LaunchMap.ts
 bin
+
+# logs
+npm-debug.log 

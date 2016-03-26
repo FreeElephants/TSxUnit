@@ -7,7 +7,4 @@ install:
     - "typings install"
 
 script:
-    - "tsc @tsxunit-launch-builder.config"
-    - "node bin/launch-builder.js tests/"
-    - "tsc"
-    - "node out.js"
+    - "npm test"

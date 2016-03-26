@@ -1,20 +1,26 @@
 # TSxUnit
 > Because we can [![Build Status](https://travis-ci.org/FreeElephants/TSxUnit.svg?branch=master)](https://travis-ci.org/FreeElephants/TSxUnit)
 
-## Steps for build and run tests:
+## Usage
 
-1. Get tsc tools:     
-    `npm install -g typescript typings `
-2. Get node definitions  
-    `typings install`
-3. Build launcher builder =)  
-    `tsc @tsxunit-launch-builder.config`
-4. Run it  
-    `node bin/launch-builder.js tests/ # it scan tests/ and build LaunchMap.ts`
-5. Run compilation for all ts sources + tests classes  
-    `tsc # tsconfig will be used`
-6. Run compiled out  
-    `node out.js`
+### For Contributing
+
+Install TS tools and dependencies:
+
+```
+$ npm install -g typescript typings
+$ typings install
+```
+
+For build and run tests use:
+
+```
+$ npm test
+```
+
+### In Your Project
+
+TBD... 
 
 ## TODO:
 * more assertions

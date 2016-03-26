@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "repository": "https://gitlab.com/FreeElephants/TSxUnit",
   "description": "xUnit for TypeScript projects",
+  "scripts": {
+    "pretest": "tsc @tsxunit-launch-builder.config && node bin/launch-builder.js tests/ && tsc",
+    "test": "node out.js"
+  },
   "main": "''",
   "keywords": [
     "xUnit",
