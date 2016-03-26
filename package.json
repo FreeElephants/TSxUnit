@@ -6,7 +6,9 @@
   "scripts": {
     "tsc": "tsc",
     "typings": "typings",
+
     "postinstall": "typings install",
+
     "build": "tsc @tsxunit-build.config",
     "pretest": "tsc @tsxunit-launch-builder.config && node bin/launch-builder.js tests/ && tsc",
     "test": "node out.js"
