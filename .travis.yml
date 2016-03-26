@@ -1,12 +1,13 @@
 language: node_js
+
 node_js:
     - "5"
 
 install:
-    - "npm install typescript typings"
-    - "typings install"
+    - "npm install"
 
 before_script:
     - "npm run build"
+
 script:
     - "npm test"

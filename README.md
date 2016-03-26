@@ -8,11 +8,10 @@
 Install TS tools and dependencies:
 
 ```
-$ npm install -g typescript typings
-$ typings install
+$ npm install 
 ```
 
-For build and run tests use:
+For run tests use:
 
 ```
 $ npm test
