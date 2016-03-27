@@ -8,7 +8,7 @@
 Clone this repo. 
 
 ```
-$ git clone 
+$ git clone git@github.com:FreeElephants/TSxUnit.git 
 ```
 
 Install TS tools and dependencies:
@@ -23,6 +23,20 @@ For run tests use:
 ```
 $ npm test
 ```
+
+In case, when you change launch builder, for compile it run 
+
+```
+$ tsc @tsxunit-launch-builder.config
+```
+
+After tests updating run: 
+
+```
+node bin/launch-builder.js tests/
+```
+
+*Note: npm ugly integrated with git — you must manual update version value in package.json before commit new tag!* 
 
 ### In Your Project
 

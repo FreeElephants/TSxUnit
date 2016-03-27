@@ -20,6 +20,9 @@
     "pretest": "tsc @tsxunit-launch-builder.config && node bin/launch-builder.js tests/ && tsc",
     "test": "node out.js"
   },
+  "bin": {
+    "launch-builder": "bin/launch-builder.js"
+  },
   "main": "build/index.js",
   "typescript": {
     "definition": "build/index.d.ts"
@@ -28,5 +31,5 @@
     "typescript": "1.8.9",
     "typings": "0.7.9"
   },
-  "version": "0.0.5"
+  "version": "0.0.6-rc1"
 }
