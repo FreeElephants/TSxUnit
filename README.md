@@ -5,10 +5,17 @@
 
 ### For Contributing
 
+Clone this repo. 
+
+```
+$ git clone 
+```
+
 Install TS tools and dependencies:
 
 ```
 $ npm install 
+$ npm typings install
 ```
 
 For run tests use:

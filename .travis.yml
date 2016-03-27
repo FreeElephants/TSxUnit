@@ -2,8 +2,18 @@ language: node_js
 node_js:
     - "5"
 
+install:
+    - "npm typings install"
+
 before_script:
     - "npm run build"
 
 script:
     - "npm test"
+
+deploy:
+    provider: npm
+    api_key: $NPMJS_COM_API_TOCKEN
+    skip_cleanup: true
+    on:
+      tags: true
