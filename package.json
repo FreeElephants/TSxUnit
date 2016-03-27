@@ -18,7 +18,7 @@
 
     "build": "tsc @tsxunit-build.config",
 
-    "build-launch-builder": "tsc @tsxunit-launch-builder.config && echo #! /usr/bin/env node | cat - bin/launch-builder.js > temp && mv temp bin/launch-builder.js",
+    "build-launch-builder": "tsc @tsxunit-launch-builder.config",
 
     "pretest": "npm run build-launch-builder && node bin/launch-builder.js tests/ && tsc",
     "test": "node out.js"
@@ -34,5 +34,5 @@
     "typescript": "1.8.9",
     "typings": "0.7.9"
   },
-  "version": "0.0.6-rc.2"
+  "version": "0.0.6-rc.3"
 }

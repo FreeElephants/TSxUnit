@@ -9,7 +9,7 @@ typings
 out.js
 out.js.map
 tests/LaunchMap.ts
-bin
+bin/launch-builder.js
 index.js
 index.d.ts
 
