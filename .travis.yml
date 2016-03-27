@@ -15,4 +15,4 @@ deploy:
     email: "samizdam@inbox.ru"
     skip_cleanup: true
     on:
-      all_branches: true
+      tags: true
