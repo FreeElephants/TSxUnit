@@ -24,7 +24,7 @@
     "test": "node out.js"
   },
   "bin": {
-    "launch-builder": "bin/launch-builder.js"
+    "launch-builder": "bin/launch-builder"
   },
   "main": "build/index.js",
   "typescript": {
@@ -34,5 +34,5 @@
     "typescript": "1.8.9",
     "typings": "0.7.9"
   },
-  "version": "0.0.6-rc.3"
+  "version": "0.0.6-rc.4"
 }
