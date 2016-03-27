@@ -2,10 +2,8 @@ language: node_js
 node_js:
     - "5"
 
-install:
-    - "npm typings install"
-
 before_script:
+    - "npm run typings install"
     - "npm run build"
 
 script:
@@ -16,4 +14,4 @@ deploy:
     api_key: $NPMJS_COM_API_TOCKEN
     skip_cleanup: true
     on:
-      tags: true
+      all_branches: true
