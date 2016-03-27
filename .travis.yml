@@ -12,6 +12,7 @@ script:
 deploy:
     provider: npm
     api_key: $NPMJS_COM_API_TOCKEN
+    email: "samizdam@inbox.ru"
     skip_cleanup: true
     on:
       all_branches: true
