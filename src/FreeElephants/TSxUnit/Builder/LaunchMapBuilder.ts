@@ -17,18 +17,20 @@ namespace FreeElephants.TSxUnit.Builder {
         }
 
         public writeTestCaseLaunchMap(map:Object, mapName:string = 'LaunchMap') {
-            var data = '///<reference path="FreeElephants/TSxUnit/TestCaseTest.ts"/>' + "\n" +
-                "import LaunchMapInterface = FreeElephants.TSxUnit.LaunchMapInterface;\n";
+            var data = '';
+            var imports = "\n\timport LaunchMapInterface = FreeElephants.TSxUnit.LaunchMapInterface;\n";
             for (var testClassFilename in map) {
                 var testCaseClassName:string = map[testClassFilename];
                 var testsRootPattern = new RegExp(this.testsRoot);
                 var testClassRefPath = testClassFilename.replace(testsRootPattern, '');
                 data += '///<reference path="' + testClassRefPath + '"/>' + "\n";
                 var classNameForImport = this.getClassNameForImport(testCaseClassName);
-                data += "import " + classNameForImport + " = " + testCaseClassName + ";\n";
+                imports += "\timport " + classNameForImport + " = " + testCaseClassName + ";\n";
             }
+
             data += "namespace tests {\n" +
-                "\texport class " + mapName + " implements LaunchMapInterface{\n" +
+                imports +
+                "\n\texport class " + mapName + " implements LaunchMapInterface{\n" +
                 "\t\tpublic getTestCases(): Object {\n" +
                 "\t\t\treturn {\n";
             for (var testClassFilename in map) {
