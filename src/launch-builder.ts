@@ -1,4 +1,4 @@
-///<reference path="../typings/main.d.ts"/>
+///<reference path="main.ts"/>
 ///<reference path="FreeElephants/TSxUnit/Builder/Scanner.ts"/>
 ///<reference path="FreeElephants/TSxUnit/Builder/ScannerInterface.ts"/>
 ///<reference path="FreeElephants/TSxUnit/Builder/LaunchMapBuilder.ts"/>
