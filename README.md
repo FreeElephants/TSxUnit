@@ -18,13 +18,13 @@ $ npm install
 $ npm typings install
 ```
 
-For run tests use:
+To run tests use:
 
 ```
 $ npm test
 ```
 
-In case, when you change launch builder, for compile it run 
+In case you changed launch builder, to compile it run 
 
 ```
 $ tsc @tsxunit-launch-builder.config
@@ -36,7 +36,7 @@ After tests updating run:
 node bin/launch-builder.js tests/
 ```
 
-*Note: npm ugly integrated with git — you must manual update version value in package.json before commit new tag!* 
+*Note: npm is ugly integrated with git — you must update version value manually in package.json before commiting a new tag!* 
 
 ### In Your Project
 
