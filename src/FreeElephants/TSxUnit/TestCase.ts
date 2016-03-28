@@ -1,5 +1,8 @@
 namespace FreeElephants.TSxUnit {
-    export abstract class TestCase {
+
+    import Assert = FreeElephants.TSxUnit.Assert.Assert;
+
+    export abstract class TestCase implements Assert {
 
         public setUp():void {
 
@@ -9,4 +12,6 @@ namespace FreeElephants.TSxUnit {
 
         }
     }
+
+
 }
