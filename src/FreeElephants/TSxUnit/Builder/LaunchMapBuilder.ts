@@ -1,5 +1,5 @@
-namespace FreeElephants.TSxUnit {
-    export class TestCaseMapBuilder {
+namespace FreeElephants.TSxUnit.Builder {
+    export class LaunchMapBuilder {
 
         private fs;
         private scanner:ScannerInterface;

@@ -1,12 +1,12 @@
 ///<reference path="../typings/main.d.ts"/>
-///<reference path="../src/FreeElephants/TSxUnit/Scanner.ts"/>
-///<reference path="../src/FreeElephants/TSxUnit/ScannerInterface.ts"/>
-///<reference path="FreeElephants/TSxUnit/LaunchMapBuilder.ts"/>
-///<reference path="../src/FreeElephants/TSxUnit/LaunchMapInterface.ts"/>
-import TestCaseMapBuilder = FreeElephants.TSxUnit.TestCaseMapBuilder;
+///<reference path="FreeElephants/TSxUnit/Scanner.ts"/>
+///<reference path="FreeElephants/TSxUnit/ScannerInterface.ts"/>
+///<reference path="FreeElephants/TSxUnit/Builder/LaunchMapBuilder.ts"/>
+///<reference path="FreeElephants/TSxUnit/LaunchMapInterface.ts"/>
+import MapBuilder = FreeElephants.TSxUnit.Builder.LaunchMapBuilder;
 var path = process.argv[2];
 var mapName = process.argv[3];
-var builder = new TestCaseMapBuilder();
+var builder = new MapBuilder();
 var map = builder.buildMap(path);
 builder.writeTestCaseLaunchMap(map, mapName);
 
