@@ -1,9 +1,7 @@
 namespace FreeElephants.TSxUnit {
-    import Assert = FreeElephants.TSxUnit.Assert.Assert;
+
     export class TestCaseTest extends TestCase {
 
-
-        public bar;
         private foo;
 
         public setUp() {
@@ -11,7 +9,7 @@ namespace FreeElephants.TSxUnit {
         }
 
         public testSetUp() {
-            Assert.assertTrue(this.foo == 'bar');
+            this.assertTrue(this.foo == 'bar');
         }
     }
 }

@@ -4,6 +4,7 @@
 ///<reference path="Assert/FailedAssertionException.ts"/>
 
 namespace FreeElephants.TSxUnit {
+
     import FailedAssertionException = FreeElephants.TSxUnit.Assert.FailedAssertionException;
     import PrinterType = FreeElephants.TSxUnit.Printer.PrinterType;
     import PrinterInterface = FreeElephants.TSxUnit.Printer.PrinterInterface;
@@ -67,7 +68,7 @@ namespace FreeElephants.TSxUnit {
 
 
         protected runTestCaseMethod(testCase:TestCase, methodName:string) {
-            this.debug("run test " + Object.getPrototypeOf(testCase) + ":" + methodName);
+            this.debug("run test " + methodName);
             testCase.setUp();
             try {
                 testCase[methodName]();
@@ -79,7 +80,7 @@ namespace FreeElephants.TSxUnit {
                     this.numberOfFailed++;
                 } else {
                     this.printer.printError();
-                    this.numberOfFailed++;
+                    this.numberOfErrors++;
                 }
             }
             testCase.tearDown();
