@@ -1,4 +1,4 @@
-namespace FreeElephants.TSxUnit {
+namespace FreeElephants.TSxUnit.Builder {
     export class Scanner implements ScannerInterface {
 
         private fs;
