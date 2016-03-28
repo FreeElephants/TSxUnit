@@ -4,6 +4,7 @@
 ///<reference path="Assert/FailedAssertionException.ts"/>
 
 namespace FreeElephants.TSxUnit {
+
     import FailedAssertionException = FreeElephants.TSxUnit.Assert.FailedAssertionException;
     import PrinterType = FreeElephants.TSxUnit.Printer.PrinterType;
     import PrinterInterface = FreeElephants.TSxUnit.Printer.PrinterInterface;

@@ -1,4 +1,5 @@
 namespace FreeElephants.TSxUnit.Builder {
+
     export class LaunchMapBuilder {
 
         private fs;

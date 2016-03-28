@@ -1,5 +1,7 @@
 namespace FreeElephants.TSxUnit.Builder {
+
     export class ScannerTest extends TestCase {
+
         public testGetShortNameFromClassFile() {
             var scanner = new Scanner();
             var expected = 'ScannerTest';
@@ -7,4 +9,5 @@ namespace FreeElephants.TSxUnit.Builder {
             this.assertTrue(expected === actual);
         }
     }
+    
 }
