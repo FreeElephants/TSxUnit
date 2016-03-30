@@ -2,8 +2,9 @@
   "compilerOptions": {
     "module": "amd",
     "target": "es3",
-    "out": "out.js",
+    "out": "test.js",
     "sourceMap": true
+
   },
   "exclude": [
     "node_modules",

@@ -15,9 +15,10 @@ node_modules
 typings
 
 # compiled output
-out.js
-out.js.map
+test.js
+test.js.map
 
 # logs
 npm-debug.log
+coverage
 

@@ -16,12 +16,15 @@
     "tsc": "tsc",
     "typings": "typings",
 
-    "build": "tsc @tsxunit-build.config",
+    "instanbul": "instanbul",
+    "remap-istanbul": "remap-istanbul",
 
+    "build": "tsc @tsxunit-build.config",
     "build-launch-builder": "tsc @tsxunit-launch-builder.config",
 
     "pretest": "npm run build-launch-builder && node bin/launch-builder.js tests/ && tsc",
-    "test": "node out.js"
+    "test": "node test.js",
+    "posttest": "istanbul cover test.js && remap-istanbul --input coverage/coverage.json --output coverage/html-report --type html"
   },
   "bin": {
     "launch-builder": "bin/launch-builder"
@@ -31,6 +34,9 @@
     "definition": "build/index.d.ts"
   },
   "dependencies": {
+    "intern": "^3.0.6",
+    "istanbul": "^0.4.2",
+    "remap-istanbul": "^0.5.1",
     "typescript": "1.8.9",
     "typings": "0.7.9"
   },

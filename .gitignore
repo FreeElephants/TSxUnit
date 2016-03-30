@@ -6,8 +6,8 @@ node_modules
 typings
 
 # compiled output
-out.js
-out.js.map
+test.js
+test.js.map
 tests/LaunchMap.ts
 bin/launch-builder.js
 index.js
@@ -15,3 +15,4 @@ index.d.ts
 
 # logs
 npm-debug.log
+coverage
