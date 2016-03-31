@@ -17,7 +17,7 @@ namespace FreeElephants.TSxUnit.Builder {
             return testClasses;
         }
 
-        public writeTestCaseLaunchMap(map:Object, mapName:string = 'LaunchMap') {
+        public writeTestCaseLaunchMap(map:Object) {
             var data = '';
             var imports = "\n\timport LaunchMapInterface = FreeElephants.TSxUnit.LaunchMapInterface;\n";
             for (var testClassFilename in map) {
@@ -31,7 +31,7 @@ namespace FreeElephants.TSxUnit.Builder {
 
             data += "namespace tests {\n" +
                 imports +
-                "\n\texport class " + mapName + " implements LaunchMapInterface{\n" +
+                "\n\texport class LaunchMap implements LaunchMapInterface{\n" +
                 "\t\tpublic getTestCases(): Object {\n" +
                 "\t\t\treturn {\n";
             for (var testClassFilename in map) {
@@ -43,7 +43,7 @@ namespace FreeElephants.TSxUnit.Builder {
                 "\t\t}\n" +
                 "\t}\n" +
                 "}\n";
-            var mapFilename = this.buildMapFileName(mapName);
+            var mapFilename = this.buildMapFileName('LaunchMap');
             this.fs.appendFileSync(mapFilename, data, {flag: 'w'});
         }
 
