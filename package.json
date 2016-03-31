@@ -15,16 +15,12 @@
   "scripts": {
     "tsc": "tsc",
     "typings": "typings",
-
     "instanbul": "instanbul",
     "remap-istanbul": "remap-istanbul",
-
     "build": "tsc @tsxunit-build.config",
     "build-launch-builder": "tsc @tsxunit-launch-builder.config",
-
     "pretest": "npm run build-launch-builder && node bin/launch-builder.js tests/ && tsc",
     "test": "node test.js",
-
     "coverage": "istanbul cover test.js && remap-istanbul --input coverage/coverage.json --output coverage/html-report --type html"
   },
   "bin": {
@@ -41,5 +37,5 @@
     "typescript": "1.8.9",
     "typings": "0.7.9"
   },
-  "version": "0.0.6"
+  "version": "0.0.7"
 }
