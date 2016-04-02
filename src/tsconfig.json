@@ -3,7 +3,8 @@
     "declaration": true,
     "module": "amd",
     "target": "es3",
-    "sourceMap": false
+    "sourceMap": false,
+    "removeComments": true
   },
   "exclude": [
     "launch-builder.ts"

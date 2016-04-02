@@ -1,3 +1,5 @@
+///<reference path="FailedAssertionException.ts"/>
+
 namespace FreeElephants.TSxUnit.Assert {
 
     export class Assert {
