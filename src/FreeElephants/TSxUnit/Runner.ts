@@ -23,12 +23,16 @@ namespace FreeElephants.TSxUnit {
             this.printer = printerFactory.buildPrinter(PrinterType[output]);
         }
 
-        public run():number {
+        public run(pathPathToRun:string = '.*', testMethodToRun:string = '.*'):number {
             var testCases = this.map.getTestCases();
+            var pathToRunRegExp = this.buildRunRegExp(pathPathToRun);
+
             for (var testCaseFileName in testCases) {
-                var testCase = testCases[testCaseFileName];
-                this.debug("run test case", testCase);
-                this.runTestCase(testCase);
+                if (pathToRunRegExp.test(testCaseFileName)) {
+                    var testCase = testCases[testCaseFileName];
+                    this.debug("run test case", testCase);
+                    this.runTestCase(testCase, testMethodToRun);
+                }
             }
 
             return this.getExitCode();
@@ -44,11 +48,14 @@ namespace FreeElephants.TSxUnit {
             }
         }
 
-        protected runTestCase(testCase:TestCase):void {
+        protected runTestCase(testCase:TestCase, testMethodToRun:string = '.*'):void {
             var testCaseMethods = this.getTestMethods(testCase);
+            var testMethodToRunRegExp = this.buildRunRegExp(testMethodToRun);
             for (var i in testCaseMethods) {
                 var testMethod = testCaseMethods[i];
-                this.runTestCaseMethod(testCase, testMethod);
+                if(testMethodToRunRegExp.test(testMethod)){
+                    this.runTestCaseMethod(testCase, testMethod);
+                }
             }
         }
 
@@ -75,7 +82,7 @@ namespace FreeElephants.TSxUnit {
                 this.numberOfPassed++;
                 this.printer.printSuccess();
             } catch (e) {
-                if(e instanceof FailedAssertionException){
+                if (e instanceof FailedAssertionException) {
                     this.printer.printFail();
                     this.numberOfFailed++;
                 } else {
@@ -84,6 +91,13 @@ namespace FreeElephants.TSxUnit {
                 }
             }
             testCase.tearDown();
+        }
+
+        private buildRunRegExp(pathPathToRun:string):RegExp {
+            if (pathPathToRun === '') {
+                pathPathToRun = '.*';
+            }
+            return new RegExp(pathPathToRun);
         }
     }
 }

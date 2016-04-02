@@ -36,8 +36,6 @@ After tests updating run:
 node bin/launch-builder.js tests/
 ```
 
-*Note: npm is ugly integrated with git — you must update version value manually in package.json before commiting a new tag!* 
-
 ### In Your Project
 
 TBD... 
