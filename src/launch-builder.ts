@@ -1,4 +1,4 @@
-///<reference path="reference.ts"/>
+///<reference path="reference.int.ts"/>
 
 ///<reference path="FreeElephants/TSxUnit/Builder/LaunchMapBuilder.ts"/>
 ///<reference path="FreeElephants/TSxUnit/LaunchMapInterface.ts"/>
