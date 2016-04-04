@@ -1,6 +1,5 @@
-///<reference path="main.ts"/>
-///<reference path="FreeElephants/TSxUnit/Builder/Scanner.ts"/>
-///<reference path="FreeElephants/TSxUnit/Builder/ScannerInterface.ts"/>
+///<reference path="reference.ts"/>
+
 ///<reference path="FreeElephants/TSxUnit/Builder/LaunchMapBuilder.ts"/>
 ///<reference path="FreeElephants/TSxUnit/LaunchMapInterface.ts"/>
 

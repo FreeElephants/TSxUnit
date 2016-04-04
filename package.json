@@ -19,9 +19,9 @@
     "remap-istanbul": "remap-istanbul",
     "build": "tsc @tsxunit-build.config",
     "build-launch-builder": "tsc @tsxunit-launch-builder.config",
-    "pretest": "npm run build-launch-builder && node bin/launch-builder.js tests/ && tsc",
-    "test": "node test.js",
-    "coverage": "istanbul cover test.js && remap-istanbul --input coverage/coverage.json --output coverage/html-report --type html"
+    "pretest": "npm run build-launch-builder && node bin/launch-builder.js tests/ && tsc -p tests/",
+    "test": "node tests/test.js",
+    "coverage": "istanbul cover tests/test.js && remap-istanbul --input coverage/coverage.json --output coverage/html-report --type html"
   },
   "bin": {
     "launch-builder": "bin/launch-builder"

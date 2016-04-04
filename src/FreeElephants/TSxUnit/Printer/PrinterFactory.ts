@@ -1,3 +1,6 @@
+///<reference path="ConsolePrinter.ts"/>
+///<reference path="PrinterInterface.ts"/>
+///<reference path="UnsupportedPrinterTypeException.ts"/>
 namespace FreeElephants.TSxUnit.Printer {
 
     export class PrinterFactory {

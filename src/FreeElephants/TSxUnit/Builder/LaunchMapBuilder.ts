@@ -18,7 +18,7 @@ namespace FreeElephants.TSxUnit.Builder {
         }
 
         public writeTestCaseLaunchMap(map:Object) {
-            var data = '';
+            var data = '///<reference path="bootstrap.r.ts"/>\n';
             var imports = "\n\timport LaunchMapInterface = FreeElephants.TSxUnit.LaunchMapInterface;\n";
             for (var testClassFilename in map) {
                 var testCaseClassName:string = map[testClassFilename];

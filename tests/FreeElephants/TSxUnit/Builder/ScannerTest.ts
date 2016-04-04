@@ -1,3 +1,4 @@
+///<reference path="../../../bootstrap.r.ts"/>
 namespace FreeElephants.TSxUnit.Builder {
 
     export class ScannerTest extends TestCase {
