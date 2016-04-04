@@ -13,9 +13,8 @@ typings.json
 node_modules
 typings
 
-# compiled output
-test.js
-test.js.map
+# locally tested npm package build
+*.tgz
 
 # logs
 npm-debug.log
