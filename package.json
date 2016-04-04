@@ -20,7 +20,7 @@
     "build": "tsc @tsxunit-build.config",
     "build-launch-builder": "tsc @tsxunit-launch-builder.config",
     "pretest": "npm run build-launch-builder && node bin/launch-builder.js tests/ && tsc -p tests/",
-    "test": "node tests/test.js",
+    "test": "node tests/tests.js",
     "coverage": "istanbul cover tests/test.js && remap-istanbul --input coverage/coverage.json --output coverage/html-report --type html"
   },
   "bin": {
