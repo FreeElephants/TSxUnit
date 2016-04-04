@@ -5,6 +5,9 @@
 
 ### In Your Project
 
+Dependencies and pre-requirements: installed type definitions for node (existed file typings/main/ambient/node/index.d.ts in your project).  
+Tested with node version 5. 
+
 1. Install ts-x-unit with npm
 
     ```
