@@ -38,10 +38,36 @@ node bin/launch-builder.js tests/
 
 ### In Your Project
 
-TBD... 
+1. Install ts-x-unit npm-package
+
+    ```
+    npm install ts-x-unit --save-dev
+    ```
+
+2. Copy assets to your project. `assets` folder contains same templates:   
+        1. pre-configured tsconfig.json for test files compilation   
+        2. bootstrap files with reference to ts-x-unit library files  
+        3. .gitignore file for compiled files
+
+    ```
+    cp node_modules/ts-x-unit/assets/* tests/
+    ```
+
+3. Add next tasks to npm scripts:  
+    3.1. Task for build LaunchMap from your test-classes:      
+    ```
+    "launch-builder": "launch-builder", 
+    ```  
+    3.2. Update LaunchMap and compile all tests before run tests:  
+    ```
+    "pretest": "launch-builder tests/ && tsc -p tests/",  
+    ```  
+    3.3. Run compiled test code:  
+    ```
+    "test": "node tests/tests.js"
+    ```
 
 ## TODO:
 * more assertions
 * more reports
 * more tests
-* think about distribution for usage in client projects

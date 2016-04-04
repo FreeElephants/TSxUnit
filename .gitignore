@@ -6,12 +6,12 @@ node_modules
 typings
 
 # compiled output
-test.js
-test.js.map
-tests/LaunchMap.ts
 bin/launch-builder.js
 index.js
 index.d.ts
+
+# locally tested npm package build
+*.tgz
 
 # logs
 npm-debug.log
