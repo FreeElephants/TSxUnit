@@ -3,42 +3,9 @@
 
 ## Usage
 
-### For Contributing
-
-Clone this repo. 
-
-```
-$ git clone git@github.com:FreeElephants/TSxUnit.git 
-```
-
-Install TS tools and dependencies:
-
-```
-$ npm install 
-$ npm typings install
-```
-
-To run tests use:
-
-```
-$ npm test
-```
-
-In case you changed launch builder, to compile it run 
-
-```
-$ tsc @tsxunit-launch-builder.config
-```
-
-After tests updating run: 
-
-```
-node bin/launch-builder.js tests/
-```
-
 ### In Your Project
 
-1. Install ts-x-unit npm-package
+1. Install ts-x-unit with npm
 
     ```
     npm install ts-x-unit --save-dev
@@ -66,8 +33,30 @@ node bin/launch-builder.js tests/
     ```
     "test": "node tests/tests.js"
     ```
+    
+Now, you can use one simple command `npm test` for rebuild and run you tests! 
 
-## TODO:
-* more assertions
-* more reports
-* more tests
+
+### For Contributors: 
+
+Clone this repo. 
+
+```
+$ git clone git@github.com:FreeElephants/TSxUnit.git 
+```
+
+Install TS tools and dependencies:
+
+```
+$ npm install 
+$ npm typings install
+```
+
+To run tests use:
+
+```
+$ npm test
+```
+
+This script (re-)build launch-builder tool, update LaunchMap, compile and run tests, compute coverage. 
+See package.json for details. 
