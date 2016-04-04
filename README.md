@@ -1,12 +1,16 @@
 # TSxUnit
-> Because we can [![Build Status](https://travis-ci.org/FreeElephants/TSxUnit.svg?branch=master)](https://travis-ci.org/FreeElephants/TSxUnit)
+> Because we can 
+
+[![Build Status](https://travis-ci.org/FreeElephants/TSxUnit.svg?branch=master)](https://travis-ci.org/FreeElephants/TSxUnit)
+[![Downloads](https://img.shields.io/npm/dm/ts-x-unit.svg)](https://npmjs.org/package/ts-x-unit)
 
 ## Usage
 
 ### In Your Project
 
-Dependencies and pre-requirements: installed type definitions for node (existed file typings/main/ambient/node/index.d.ts in your project).  
-Tested with node version 5. 
+Dependencies and pre-requirements: installed type definitions for node (existed file typings/main/ambient/node/index.d.ts in your project). 
+
+See sample of usage: [in CalcTestExample project](https://github.com/FreeElephants/CalcTestExample). 
 
 1. Install ts-x-unit with npm
 
