@@ -1,9 +1,12 @@
 tests
+
+# not useful configs
 .travis.yml
-tsconfig.json
 *.config
-typings.json
 .npmignore
+tsconfig.json
+typings.json
+tslint.json
 
 # .gitignore content:
 # IDE
