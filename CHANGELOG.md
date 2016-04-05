@@ -4,6 +4,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.0] - 2016-04-05
+## Internal
+- Use tslint and fix CS. 
+
+## [0.0.8] - 2016-04-04
+### Added
+- Assets with bootsrap files. 
+- References to links library sources from client code.  
+
 ## [0.0.7] - 2016-03-31
 ### Added
 - Support optional CLI arguments in bootstrap for run specified tests: node test.js <patternForPathOrFileThatWillBeRun> <patternForMethodNamesThatWIllBeExecute>

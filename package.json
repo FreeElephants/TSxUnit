@@ -31,11 +31,13 @@
     "definition": "build/index.d.ts"
   },
   "dependencies": {
-    "intern": "^3.0.6",
     "istanbul": "^0.4.2",
     "remap-istanbul": "^0.5.1",
     "typescript": "1.8.9",
     "typings": "0.7.9"
   },
-  "version": "0.0.8"
+  "version": "0.0.8",
+  "devDependencies": {
+    "tslint": "^3.7.1"
+  }
 }

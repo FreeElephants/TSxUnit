@@ -1,5 +1,3 @@
-
-
 ///<reference path="FreeElephants/TSxUnit/Runner.ts"/>
 ///<reference path="FreeElephants/TSxUnit/LaunchMapInterface.ts"/>
 ///<reference path="FreeElephants/TSxUnit/TestCase.ts"/>

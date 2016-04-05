@@ -6,23 +6,23 @@ namespace FreeElephants.TSxUnit {
 
     export abstract class TestCase {
 
-        protected assertTrue(expr:boolean):void {
+        protected assertTrue(expr: boolean): void {
             Assert.assertTrue(expr);
         }
 
-        protected assertFalse(expr:boolean):void {
+        protected assertFalse(expr: boolean): void {
             Assert.assertFalse(expr);
         }
 
-        protected assertUndefined(expr):void {
+        protected assertUndefined(expr): void {
             Assert.assertUndefined(expr);
         }
 
-        public setUp():void {
+        public setUp(): void {
 
         }
 
-        public tearDown():void {
+        public tearDown(): void {
 
         }
     }

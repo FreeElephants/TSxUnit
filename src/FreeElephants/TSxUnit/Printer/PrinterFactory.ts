@@ -5,8 +5,8 @@ namespace FreeElephants.TSxUnit.Printer {
 
     export class PrinterFactory {
 
-        public buildPrinter(type:PrinterType):PrinterInterface {
-            var printer:PrinterInterface;
+        public buildPrinter(type: PrinterType): PrinterInterface {
+            let printer: PrinterInterface;
             switch (type) {
                 case PrinterType.console:
                     printer = new ConsolePrinter();
