@@ -5,26 +5,26 @@ namespace FreeElephants.TSxUnit.Builder {
         private fs;
 
         public constructor() {
-            this.fs = require('fs');
+            this.fs = require("fs");
         }
 
-        getNamespaceFromClassFile(filename:string):string {
-            var fileContent = this.fs.readFileSync(filename, {encoding: 'utf8'});
-            var namespaceMatch = fileContent.match(/[namespace|module]{1}\s{1,}([\w.]*)[\s?\{]/);
-            var namespaceEntry = namespaceMatch[1];
+        getNamespaceFromClassFile(filename: string): string {
+            let fileContent = this.fs.readFileSync(filename, {encoding: 'utf8'});
+            let namespaceMatch = fileContent.match(/[namespace|module]{1}\s{1,}([\w.]*)[\s?\{]/);
+            let namespaceEntry = namespaceMatch[1];
             return namespaceEntry;
 
         }
 
-        getShortClassNameFromClassFile(filename:string):string {
-            var fileContent = this.fs.readFileSync(filename, {encoding: 'utf8'});
-            var classNameMatch = fileContent.match(/class{1}\s{1,}([\w\d_]*)\s?/);
-            var classNameEntry = classNameMatch[1];
+        getShortClassNameFromClassFile(filename: string): string {
+            let fileContent = this.fs.readFileSync(filename, {encoding: 'utf8'});
+            let classNameMatch = fileContent.match(/class{1}\s{1,}([\w\d_]*)\s?/);
+            let classNameEntry = classNameMatch[1];
             return classNameEntry;
 
         }
 
-        getFullClassNameFromClassFile(filename:string):string {
+        getFullClassNameFromClassFile(filename: string): string {
             return this.getNamespaceFromClassFile(filename) + '.' + this.getShortClassNameFromClassFile(filename);
         }
     }

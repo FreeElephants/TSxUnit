@@ -1,14 +1,14 @@
 namespace FreeElephants.TSxUnit.Printer {
     export class ConsolePrinter implements PrinterInterface {
-        printError():void {
+        printError(): void {
             console.log('E');
         }
 
-        printSuccess():void {
+        printSuccess(): void {
             console.log('.');
         }
 
-        printFail():void {
+        printFail(): void {
             console.log('F');
         }
 

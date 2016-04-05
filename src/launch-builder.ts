@@ -5,9 +5,9 @@
 
 import MapBuilder = FreeElephants.TSxUnit.Builder.LaunchMapBuilder;
 
-var path = process.argv[2];
+let path = process.argv[2];
 
-var builder = new MapBuilder();
-var map = builder.buildMap(path);
+let builder = new MapBuilder();
+let map = builder.buildMap(path);
 builder.writeTestCaseLaunchMap(map);
 
