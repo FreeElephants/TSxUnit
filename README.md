@@ -69,3 +69,5 @@ $ npm test
 
 This script (re-)build launch-builder tool, update LaunchMap, compile and run tests, compute coverage. 
 See package.json for details. 
+
+See [ROADMAP](ROADMAP.md) for planned features. 

@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+See [ROADMAP](ROADMAP.md).
+
 ## [0.1.0] - 2016-04-05
 ## Internal
 - Use tslint and fix CS. 

@@ -1,0 +1,43 @@
+# Features:  
+- Summary info: 
+    - before execution: 
+        - show vendor and lib name 
+        - show info and path about launched suite 
+    - after execution: 
+        - number of Passed, Failed and Error tests
+        - total number of tests 
+        - total number of assertions
+        - total time of execution
+        - names of failed test cases with reasons:
+        - names of test with errors with reasons
+            - get stack, mapped to TypeScript source
+- Verbose (like PHPUnit and JUnit): 
+    - minimal info by default: 
+        - only single . (dot) for passed, `F` for for failed and `E` liters for test with error  
+    - more with given -v option:
+        - print in output name for every executed test and method at new line
+- TestCase.setUpBeforeClass() and TestCase.tearDownAfterClass() 
+- Support for annotations: 
+    - @TestCase for test classes
+    - @test for methods
+    - @TestSuite=<name> for target suite
+    - @beforeClass
+    - @afterClass
+    - @before
+    - @after
+- Suite support: Launch Maps return suites instead test cases
+    - Run specified in argument suite: node tests/tests.js <suiteName>
+    - Two way for define suites: mark with annotation, or write LaunchMap manually  
+- Add next assertions:
+    - assertEquals
+    - assertSame
+    - assertNull
+    - assertNotNull
+    - optional custom message on fail for all asserts in last argument. 
+- Logging in TAP, JSON and XML formats
+- Support in-file configuration (ts-x-unit.json for example), configurable options:
+    - all CLI options: 
+        - suites for execution 
+        - verbose level
+    - logging format(s)
+
