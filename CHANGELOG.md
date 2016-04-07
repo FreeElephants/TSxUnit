@@ -6,8 +6,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## [0.1.1] - 2016-04-07
+### Added 
+- Road map with features list. 
+
+### Fixed
+- Add exclusion for tests/tsconfig.json
+- Update README with fix npm behavior with .gitignore.
+
 ## [0.1.0] - 2016-04-05
-## Internal
+### Internal
 - Use tslint and fix CS. 
 
 ## [0.0.8] - 2016-04-04

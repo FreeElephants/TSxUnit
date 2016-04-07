@@ -17,16 +17,16 @@ See sample of usage: [in CalcTestExample project](https://github.com/FreeElephan
 1. Install ts-x-unit with npm
 
     ```
-    npm install ts-x-unit --save-dev
+    $ npm install ts-x-unit --save-dev
     ```
 
 2. Copy assets to your project. `assets` folder contains same templates:   
-        1. pre-configured tsconfig.json for test files compilation   
+        1. pre-configured `tsconfig.json` for test files compilation   
         2. bootstrap files with reference to ts-x-unit library files  
-        3. .gitignore file for compiled files
+        3. `.gitignore` file for compiled files (but it renamed on npm publishing: https://github.com/npm/npm/issues/3763 bug)
 
     ```
-    cp node_modules/ts-x-unit/assets/* tests/
+    $  cp -r node_modules/ts-x-unit/assets/. tests/ && mv tests/.npmignore tests/.gitignore
     ```
 
 3. Add next tasks to npm scripts:  

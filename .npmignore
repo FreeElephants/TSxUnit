@@ -5,6 +5,7 @@ tests
 *.config
 .npmignore
 tsconfig.json
+!assets/tsconfig.json
 typings.json
 tslint.json
 

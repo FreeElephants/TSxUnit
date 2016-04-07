@@ -1,43 +1,71 @@
-# Features:  
-- Summary info: 
-    - before execution: 
-        - show vendor and lib name 
-        - show info and path about launched suite 
-    - after execution: 
-        - number of Passed, Failed and Error tests
-        - total number of tests 
-        - total number of assertions
-        - total time of execution
-        - names of failed test cases with reasons:
-        - names of test with errors with reasons
-            - get stack, mapped to TypeScript source
-- Verbose (like PHPUnit and JUnit): 
-    - minimal info by default: 
-        - only single . (dot) for passed, `F` for for failed and `E` liters for test with error  
-    - more with given -v option:
-        - print in output name for every executed test and method at new line
-- TestCase.setUpBeforeClass() and TestCase.tearDownAfterClass() 
-- Support for annotations: 
-    - @TestCase for test classes
-    - @test for methods
-    - @TestSuite=<name> for target suite
-    - @beforeClass
-    - @afterClass
-    - @before
-    - @after
-- Suite support: Launch Maps return suites instead test cases
-    - Run specified in argument suite: node tests/tests.js <suiteName>
-    - Two way for define suites: mark with annotation, or write LaunchMap manually  
-- Add next assertions:
-    - assertEquals
-    - assertSame
-    - assertNull
-    - assertNotNull
-    - optional custom message on fail for all asserts in last argument. 
-- Logging in TAP, JSON and XML formats
-- Support in-file configuration (ts-x-unit.json for example), configurable options:
-    - all CLI options: 
-        - suites for execution 
-        - verbose level
-    - logging format(s)
+# Road map for first major version 
 
+List of "must have" features in v1.0.0.  
+E.g. every minor 0.x version - it's milestone before public release. 
+
+## v0.2.0
+
+### Add more assertions:
+- assertEquals
+- assertSame
+- assertNull
+- assertNotNull
+- optional custom message on fail for all asserts in last argument 
+        
+## v0.3.0
+
+### Summary info: 
+- before execution: 
+    - show vendor and lib name 
+    - show info and path about launched suite 
+- after execution: 
+    - number of Passed, Failed and Error tests
+    - total number of tests 
+    - total number of assertions
+    - total time of execution
+    - names of failed assertions with reason: test case name and message
+    - names of test with errors with reasons (catched error)
+
+## v0.4.0
+
+### TestCase.setUpBeforeClass() and TestCase.tearDownAfterClass()
+
+## v0.5.0
+
+### Verbose level: 
+- minimal info by default: 
+    - only single . (dot) for passed, `F` for for failed and `E` liters for test with error  
+- more with given -v option:
+    - print in output name for every executed test and method at new line
+
+## v0.6.0
+
+### Logging test results in standard formats:
+
+- TAP, 
+- JSON 
+- XML
+
+Send result in required format with skipped header and summary data - stdout can be redirected to file. 
+Can be specified in `--output <format>` options.
+
+## v0.7.0
+
+### Support in-file configuration (ts-x-unit.json by default for example), configurable options:
+- all CLI options
+- Support optional argument `--config` (short alias: `-c`) for it 
+
+## v0.8.0
+
+### Support for annotations: 
+- @TestCase for test classes
+- @test for methods
+- @beforeClass
+- @afterClass
+- @before
+- @after
+- @skip
+
+## v0.9.0
+ 
+### Get debug info for error in test mapped to source 
