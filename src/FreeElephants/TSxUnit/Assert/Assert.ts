@@ -32,11 +32,17 @@ namespace FreeElephants.TSxUnit.Assert {
             }
         }
 
-        public static assertSame(expected, actual, msg: string = "Failed asserting that "): void {
-            if(expected !== actual) {
+        public static assertSame(expected, actual, msg: string = "Failed asserting that two objects are same. "): void {
+            if (expected !== actual) {
                 throw new FailedAssertionException(msg);
             }
         }
+
+        //public static assertNotNull(expr, msg: string = "Failed assertion that value is not null. ") {
+        //    if (expr !== null) {
+        //        throw new FailedAssertionException(msg);
+        //    }
+        //}
 
     }
 

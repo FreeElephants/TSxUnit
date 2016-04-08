@@ -33,5 +33,9 @@ namespace FreeElephants.TSxUnit.Assert {
             let baz = {foo: "bar"};
             this.assertSame(baz, baz);
         }
+
+        //public testAssertNotNull() {
+        //    this.assertNotNull("foo");
+        //}
     }
 }
