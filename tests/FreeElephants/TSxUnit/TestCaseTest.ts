@@ -1,5 +1,3 @@
-///<reference path="../../bootstrap.r.ts"/>
-
 namespace FreeElephants.TSxUnit {
 
     export class TestCaseTest extends TestCase {
@@ -7,11 +5,11 @@ namespace FreeElephants.TSxUnit {
         private foo;
 
         public setUp() {
-            this.foo = 'bar';
+            this.foo = "bar";
         }
 
         public testSetUp() {
-            this.assertTrue(this.foo == 'bar');
+            this.assertTrue(this.foo == "bar");
         }
     }
 }

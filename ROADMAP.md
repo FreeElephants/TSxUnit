@@ -1,6 +1,6 @@
 # Road map for first major version 
 
-List of "must have" features in v1.0.0.  
+List of "must have" features in v1.0.0-rc.  
 E.g. every minor 0.x version - it's milestone before public release. 
 
 ## v0.2.0

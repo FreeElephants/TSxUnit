@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## [0.2.0] - 2016-04-0X
+- Added
+
+
 ## [0.1.1] - 2016-04-07
 ### Added 
 - Road map with features list. 
