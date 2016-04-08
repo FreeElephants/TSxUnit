@@ -28,8 +28,7 @@
             "always"
         ],
         "triple-equals": [
-            true,
-            "allow-null-check"
+            false
         ],
         "typedef-whitespace": [
             true,

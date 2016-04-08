@@ -23,10 +23,43 @@ namespace FreeElephants.TSxUnit.Assert {
         }
 
         public static assertEquals(expected, actual, msg: string = "Failed asserting that two objects are equals. "): void {
-            if (expected != actual) {
+            if (expected instanceof Object && actual instanceof Object) {
+                if (Comparator.isEquals(expected, actual) === false) {
+                    throw new FailedAssertionException(msg);
+                }
+            } else if (expected != actual) {
                 throw new FailedAssertionException(msg);
             }
         }
 
     }
+
+    class Comparator {
+        public static isEquals(expected, actual): boolean {
+            // Create arrays of property names
+            let expectedProps = Object.getOwnPropertyNames(expected);
+            let actualProps = Object.getOwnPropertyNames(actual);
+
+            // If number of properties is different,
+            // objects are not equivalent
+            if (expectedProps.length != actualProps.length) {
+                return false;
+            }
+
+            for (let i = 0; i < expectedProps.length; i++) {
+                let propName = expectedProps[i];
+
+                // If values of same property are not equal,
+                // objects are not equivalent
+                if (expected[propName] !== actual[propName]) {
+                    return false;
+                }
+            }
+
+            // If we made it this far, objects
+            // are considered equivalent
+            return true;
+        }
+    }
+
 }
