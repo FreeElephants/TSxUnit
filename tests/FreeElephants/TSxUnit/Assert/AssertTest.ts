@@ -5,5 +5,13 @@ namespace FreeElephants.TSxUnit.Assert {
         public testAssertTrue() {
             this.assertTrue(true);
         }
+
+        public testAssertFalse() {
+            this.assertFalse(false);
+        }
+
+        public testAssertUndefined() {
+            this.assertUndefined(this[100500]);
+        }
     }
 }
