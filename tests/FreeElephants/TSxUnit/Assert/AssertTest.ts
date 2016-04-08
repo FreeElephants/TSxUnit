@@ -28,5 +28,10 @@ namespace FreeElephants.TSxUnit.Assert {
 
             this.assertEquals(1, "1");
         }
+
+        public testAssertSame() {
+            let baz = {foo: "bar"};
+            this.assertSame(baz, baz);
+        }
     }
 }

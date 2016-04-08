@@ -30,6 +30,10 @@ namespace FreeElephants.TSxUnit {
             Assert.assertEquals(expected, actual, msg);
         }
 
+        protected assertSame(expected, actual, msg: string = this._undefined): void {
+            Assert.assertSame(expected, actual, msg);
+        }
+
         /**
          * This method will be called before every test method
          */

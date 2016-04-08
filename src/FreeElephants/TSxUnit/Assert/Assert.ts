@@ -32,6 +32,12 @@ namespace FreeElephants.TSxUnit.Assert {
             }
         }
 
+        public static assertSame(expected, actual, msg: string = "Failed asserting that "): void {
+            if(expected !== actual) {
+                throw new FailedAssertionException(msg);
+            }
+        }
+
     }
 
     class Comparator {
