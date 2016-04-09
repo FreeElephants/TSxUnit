@@ -26,9 +26,9 @@ namespace FreeElephants.TSxUnit {
             Assert.assertUndefined(expr, msg);
         }
 
-        //protected assertNotNull(expr, msg: string = this._undefined): void {
-        //    Assert.assertNotNull(expr, msg);
-        //}
+        protected assertNotNull(expr, msg: string = this._undefined): void {
+            Assert.assertNotNull(expr, msg);
+        }
 
         protected assertEquals(expected, actual, msg: string = this._undefined): void {
             Assert.assertEquals(expected, actual, msg);

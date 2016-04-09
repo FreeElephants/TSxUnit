@@ -38,11 +38,11 @@ namespace FreeElephants.TSxUnit.Assert {
             }
         }
 
-        //public static assertNotNull(expr, msg: string = "Failed assertion that value is not null. ") {
-        //    if (expr !== null) {
-        //        throw new FailedAssertionException(msg);
-        //    }
-        //}
+        public static assertNotNull(expr, msg: string = "Failed assertion that value is not null. ") {
+            if (expr === null) {
+                throw new FailedAssertionException(msg);
+            }
+        }
 
     }
 
