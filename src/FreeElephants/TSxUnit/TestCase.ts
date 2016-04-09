@@ -14,32 +14,45 @@ namespace FreeElephants.TSxUnit {
          */
         private _undefined;
 
+        private numberOfAsserts: number = 0;
+
         protected assertTrue(expr: boolean, msg: string = this._undefined): void {
+            this.numberOfAsserts++;
             Assert.assertTrue(expr, msg);
         }
 
         protected assertFalse(expr: boolean, msg: string = this._undefined): void {
+            this.numberOfAsserts++;
             Assert.assertFalse(expr, msg);
         }
 
         protected assertUndefined(expr, msg: string = this._undefined): void {
+            this.numberOfAsserts++;
             Assert.assertUndefined(expr, msg);
         }
 
         protected assertNotNull(expr, msg: string = this._undefined): void {
+            this.numberOfAsserts++;
             Assert.assertNotNull(expr, msg);
         }
 
         protected assertEquals(expected, actual, msg: string = this._undefined): void {
+            this.numberOfAsserts++;
             Assert.assertEquals(expected, actual, msg);
         }
 
         protected assertSame(expected, actual, msg: string = this._undefined): void {
+            this.numberOfAsserts++;
             Assert.assertSame(expected, actual, msg);
         }
 
         protected assertNull(expr, msg: string = this._undefined): void {
+            this.numberOfAsserts++;
             Assert.assertNull(expr, msg);
+        }
+
+        public getNumberOfAssertions(): number {
+            return this.numberOfAsserts;
         }
 
         /**

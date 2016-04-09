@@ -7,6 +7,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 See [ROADMAP](ROADMAP.md).
 
 ## [0.2.1] - 2016-04-09
+### Added
+- Summary info: 
+    - total number of tests 
+    - total number of assertions
+
+## [0.2.1] - 2016-04-09
 ### Internal
 - Bump version in this patch for ping npmjs.com registry.  
 

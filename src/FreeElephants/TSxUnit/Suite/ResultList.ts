@@ -5,6 +5,10 @@ namespace FreeElephants.TSxUnit.Suite {
 
     export class ResultList {
 
+        /**
+         *
+         * @type {Array}<TestCaseMethod>[]
+         */
         private list = [];
 
         public add(entry: TestCaseMethod) {
@@ -14,5 +18,6 @@ namespace FreeElephants.TSxUnit.Suite {
         public count(): number {
             return this.list.length;
         }
+
     }
 }

@@ -4,7 +4,7 @@ namespace FreeElephants.TSxUnit.Test {
 
     export class TestCaseMethod {
 
-        public constructor(testCase: Test , method) {
+        public constructor(testCase: Test, method) {
 
         }
 

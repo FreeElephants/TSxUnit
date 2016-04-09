@@ -13,6 +13,7 @@ namespace FreeElephants.TSxUnit {
     import PrinterFactory = FreeElephants.TSxUnit.Printer.PrinterFactory;
     import Summary = FreeElephants.TSxUnit.Suite.Summary;
     import ResultList = FreeElephants.TSxUnit.Suite.ResultList;
+    import TestCaseMethod = FreeElephants.TSxUnit.Test.TestCaseMethod;
 
     export class Runner {
 
@@ -34,16 +35,17 @@ namespace FreeElephants.TSxUnit {
         public run(pathPathToRun: string = ".*", testMethodToRun: string = ".*"): number {
             let testCases = this.map.getTestCases();
             let pathToRunRegExp = this.buildRunRegExp(pathPathToRun);
+            let totalNumberOfAssertions = 0;
 
             for (let testCaseFileName in testCases) {
                 if (pathToRunRegExp.test(testCaseFileName)) {
                     let testCase = testCases[testCaseFileName];
                     // this.debug("run test case", testCase);
-                    this.runTestCase(testCase, testMethodToRun);
+                    totalNumberOfAssertions += this.runTestCase(testCase, testMethodToRun);
                 }
             }
 
-            let suiteSummary = new Summary(this.passedList, this.failedList, this.errorList);
+            let suiteSummary = new Summary(this.passedList, this.failedList, this.errorList, totalNumberOfAssertions);
             this.printer.printSummary(suiteSummary);
 
             this.printer.flushBuffer();
@@ -52,7 +54,7 @@ namespace FreeElephants.TSxUnit {
         }
 
         private getExitCode(): number {
-            return this.numberOfFailed + this.numberOfErrors;
+            return this.failedList.count() + this.errorList.count();
         }
 
         private debug(msg, context = ""): void {
@@ -61,7 +63,7 @@ namespace FreeElephants.TSxUnit {
             }
         }
 
-        protected runTestCase(testCase: TestCase, testMethodToRun: string = ".*"): void {
+        protected runTestCase(testCase: TestCase, testMethodToRun: string = ".*"): number {
             let testCaseMethods = this.getTestMethods(testCase);
             let testMethodToRunRegExp = this.buildRunRegExp(testMethodToRun);
             for (let i in testCaseMethods) {
@@ -70,6 +72,8 @@ namespace FreeElephants.TSxUnit {
                     this.runTestCaseMethod(testCase, testMethod);
                 }
             }
+
+            return testCase.getNumberOfAssertions();
         }
 
         private getTestMethods(testCase: TestCase) {
@@ -91,17 +95,19 @@ namespace FreeElephants.TSxUnit {
             // this.debug("run test " + methodName);
             testCase.setUp();
 
+            let test = new TestCaseMethod(testCase, methodName);
+
             try {
                 testCase[methodName]();
-                this.numberOfPassed++;
+                this.passedList.add(test);
                 this.printer.printSuccess();
             } catch (e) {
                 if (e instanceof FailedAssertionException) {
+                    this.failedList.add(test);
                     this.printer.printFail();
-                    this.numberOfFailed++;
                 } else {
+                    this.errorList.add(test);
                     this.printer.printError();
-                    this.numberOfErrors++;
                 }
             }
 

@@ -11,8 +11,6 @@ E.g. every minor 0.x version - it's milestone before public release.
     - show info and path about launched suite 
 - after execution: 
     - number of Passed, Failed and Error tests
-    - total number of tests 
-    - total number of assertions
     - total time of execution
     - names of failed assertions with reason: test case name and message
     - names of test with errors with reasons (catched error)

@@ -33,7 +33,17 @@ namespace FreeElephants.TSxUnit.Printer {
         }
 
         printSummary(suiteSummary: Summary): void {
+            let summaryContent = "\n";
 
+            if (suiteSummary.isOk()) {
+                let testsCounter = suiteSummary.getNumberOfPassed();
+                let assertCounter = suiteSummary.getNumberOfAssertions();
+                let util = require("util");
+                summaryContent += util.format("OK (%d tests, %d assertions)", testsCounter, assertCounter);
+            }
+
+            summaryContent +=
+                this.addToBuffer(summaryContent);
         }
 
 
