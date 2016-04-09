@@ -1,5 +1,7 @@
 namespace FreeElephants.TSxUnit.Printer {
 
+    import Summary = FreeElephants.TSxUnit.Suite.Summary;
+
     export class ConsolePrinter implements PrinterInterface {
 
         private buffer: string = "";
@@ -29,6 +31,11 @@ namespace FreeElephants.TSxUnit.Printer {
             console.log(buffer);
             return buffer.length;
         }
+
+        printSummary(suiteSummary: Summary): void {
+
+        }
+
 
     }
 }

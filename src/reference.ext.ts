@@ -4,3 +4,8 @@
 
 ///<reference path="FreeElephants/TSxUnit/Builder/Scanner.ts"/>
 ///<reference path="FreeElephants/TSxUnit/Builder/ScannerInterface.ts"/>
+
+///<reference path="FreeElephants/TSxUnit/Suite/Summary.ts"/>
+///<reference path="FreeElephants/TSxUnit/Suite/ResultList.ts"/>
+
+///<reference path="FreeElephants/TSxUnit/Test/TestCaseMethod.ts"/>

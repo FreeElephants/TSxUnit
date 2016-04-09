@@ -2,6 +2,8 @@
 ///<reference path="Printer/PrinterInterface.ts"/>
 ///<reference path="Printer/PrinterType.ts"/>
 ///<reference path="Assert/FailedAssertionException.ts"/>
+///<reference path="Suite/Summary.ts"/>
+///<reference path="Suite/ResultList.ts"/>
 
 namespace FreeElephants.TSxUnit {
 
@@ -9,6 +11,8 @@ namespace FreeElephants.TSxUnit {
     import PrinterType = FreeElephants.TSxUnit.Printer.PrinterType;
     import PrinterInterface = FreeElephants.TSxUnit.Printer.PrinterInterface;
     import PrinterFactory = FreeElephants.TSxUnit.Printer.PrinterFactory;
+    import Summary = FreeElephants.TSxUnit.Suite.Summary;
+    import ResultList = FreeElephants.TSxUnit.Suite.ResultList;
 
     export class Runner {
 
@@ -17,6 +21,10 @@ namespace FreeElephants.TSxUnit {
         private numberOfPassed = 0;
         private numberOfFailed = 0;
         private numberOfErrors = 0;
+
+        private passedList = new ResultList();
+        private failedList = new ResultList();
+        private errorList = new ResultList();
 
         public constructor(private map: LaunchMapInterface, output = "console") {
             let printerFactory = new PrinterFactory();
@@ -34,6 +42,9 @@ namespace FreeElephants.TSxUnit {
                     this.runTestCase(testCase, testMethodToRun);
                 }
             }
+
+            let suiteSummary = new Summary(this.passedList, this.failedList, this.errorList);
+            this.printer.printSummary(suiteSummary);
 
             this.printer.flushBuffer();
 

@@ -1,5 +1,7 @@
 namespace FreeElephants.TSxUnit.Printer {
 
+    import Summary = FreeElephants.TSxUnit.Suite.Summary;
+
     export interface PrinterInterface {
 
         /**
@@ -33,5 +35,12 @@ namespace FreeElephants.TSxUnit.Printer {
          * Send buffer content to output and return it size in bytes.
          */
         flushBuffer(): number;
+
+        /**
+         * Add summary info.
+         *
+         * @param suiteSummary
+         */
+        printSummary(suiteSummary: Summary): void;
     }
 }
