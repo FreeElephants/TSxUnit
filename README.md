@@ -9,6 +9,8 @@
 
 ## Usage
 
+[Tell everyone about your TypeScript Test Driven Project!](USERS.md)   
+
 ### In Your Project
 
 Dependencies and pre-requirements: installed type definitions for node (existed file typings/main/ambient/node/index.d.ts in your project). 
