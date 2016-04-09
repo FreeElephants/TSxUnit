@@ -30,7 +30,7 @@ namespace FreeElephants.TSxUnit {
             for (let testCaseFileName in testCases) {
                 if (pathToRunRegExp.test(testCaseFileName)) {
                     let testCase = testCases[testCaseFileName];
-                    this.debug("run test case", testCase);
+                    // this.debug("run test case", testCase);
                     this.runTestCase(testCase, testMethodToRun);
                 }
             }
@@ -60,10 +60,10 @@ namespace FreeElephants.TSxUnit {
         }
 
         private getTestMethods(testCase: TestCase) {
-            var testCasePrototype = testCase.constructor.prototype;
-            var testMethods = Object.getOwnPropertyNames(testCasePrototype)
+            let testCasePrototype = testCase.constructor.prototype;
+            let testMethods = Object.getOwnPropertyNames(testCasePrototype)
                 .filter(function (propName: string) {
-                    var candidate = testCasePrototype[propName];
+                    let candidate = testCasePrototype[propName];
                     return typeof candidate === "function" && this.isTestMethod(propName);
                 }, this);
             return testMethods;
@@ -75,7 +75,7 @@ namespace FreeElephants.TSxUnit {
 
 
         protected runTestCaseMethod(testCase: TestCase, methodName: string) {
-            this.debug("run test " + methodName);
+            // this.debug("run test " + methodName);
             testCase.setUp();
             try {
                 testCase[methodName]();
