@@ -38,6 +38,10 @@ namespace FreeElephants.TSxUnit {
             Assert.assertSame(expected, actual, msg);
         }
 
+        protected assertNull(expr, msg: string = this._undefined): void {
+            Assert.assertNull(expr, msg);
+        }
+
         /**
          * This method will be called before every test method
          */

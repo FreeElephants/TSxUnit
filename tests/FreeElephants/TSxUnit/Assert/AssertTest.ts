@@ -37,5 +37,9 @@ namespace FreeElephants.TSxUnit.Assert {
         public testAssertNotNull() {
             this.assertNotNull("foo");
         }
+
+        public testAssertNull() {
+            this.assertNull(null);
+        }
     }
 }

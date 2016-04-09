@@ -44,8 +44,18 @@ namespace FreeElephants.TSxUnit.Assert {
             }
         }
 
+        public static assertNull(expr, msg: string = "Failed assertion that value is null. ") {
+            if (expr !== null) {
+                throw new FailedAssertionException(msg);
+            }
+        }
+
     }
 
+    /**
+     * Thanks to Joshua Clanton and his Drips:
+     * this objects comparison based on code from http://adripofjavascript.com/blog/drips/object-equality-in-javascript.html
+     */
     class Comparator {
         public static isEquals(expected, actual): boolean {
             // Create arrays of property names
