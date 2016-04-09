@@ -6,12 +6,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
-## [0.2.0] - 2016-04-0X
+## [0.2.0] - 2016-04-09
 ### Added
 - assertNull
 - assertNotNull
 - assertSame
 - assertEquals
+- optional custom message on fail for all asserts in last argument 
 
 ## [0.1.1] - 2016-04-07
 ### Added 

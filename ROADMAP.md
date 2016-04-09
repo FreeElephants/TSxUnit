@@ -3,15 +3,6 @@
 List of "must have" features in v1.0.0-rc.  
 E.g. every minor 0.x version - it's milestone before public release. 
 
-## v0.2.0
-
-### Add more assertions:
-- assertEquals
-- assertSame
-- assertNull
-- assertNotNull
-- optional custom message on fail for all asserts in last argument 
-        
 ## v0.3.0
 
 ### Summary info: 

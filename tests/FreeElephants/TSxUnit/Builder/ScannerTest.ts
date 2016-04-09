@@ -9,5 +9,5 @@ namespace FreeElephants.TSxUnit.Builder {
             this.assertTrue(expected === actual);
         }
     }
-    
+
 }
