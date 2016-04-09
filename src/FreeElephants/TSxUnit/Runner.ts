@@ -35,6 +35,8 @@ namespace FreeElephants.TSxUnit {
                 }
             }
 
+            this.printer.flushBuffer();
+
             return this.getExitCode();
         }
 
@@ -77,6 +79,7 @@ namespace FreeElephants.TSxUnit {
         protected runTestCaseMethod(testCase: TestCase, methodName: string) {
             // this.debug("run test " + methodName);
             testCase.setUp();
+
             try {
                 testCase[methodName]();
                 this.numberOfPassed++;
@@ -90,6 +93,7 @@ namespace FreeElephants.TSxUnit {
                     this.numberOfErrors++;
                 }
             }
+
             testCase.tearDown();
         }
 

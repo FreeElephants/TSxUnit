@@ -2,16 +2,32 @@ namespace FreeElephants.TSxUnit.Printer {
 
     export class ConsolePrinter implements PrinterInterface {
 
+        private buffer: string = "";
+
         printError(): void {
-            console.log("E");
+            this.addToBuffer("E");
         }
 
         printSuccess(): void {
-            console.log(".");
+            this.addToBuffer(".");
         }
 
         printFail(): void {
-            console.log("F");
+            this.addToBuffer("F");
+        }
+
+        addToBuffer(content: string): void {
+            this.buffer += content;
+        }
+
+        getBuffer(): string {
+            return this.buffer;
+        }
+
+        flushBuffer(): number {
+            let buffer = this.getBuffer();
+            console.log(buffer);
+            return buffer.length;
         }
 
     }
