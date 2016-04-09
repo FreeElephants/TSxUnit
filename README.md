@@ -3,6 +3,7 @@
 > Because we can. 
 
 [![Build Status](https://travis-ci.org/FreeElephants/TSxUnit.svg?branch=master)](https://travis-ci.org/FreeElephants/TSxUnit)
+[![npm version](https://badge.fury.io/js/ts-x-unit.svg)](https://badge.fury.io/js/ts-x-unit)
 [![Downloads](https://img.shields.io/npm/dm/ts-x-unit.svg)](https://npmjs.org/package/ts-x-unit)
 [![bitHound Overall Score](https://www.bithound.io/github/FreeElephants/TSxUnit/badges/score.svg)](https://www.bithound.io/github/FreeElephants/TSxUnit)
 
