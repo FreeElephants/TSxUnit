@@ -102,7 +102,6 @@ namespace FreeElephants.TSxUnit {
                 if (e instanceof FailedAssertionException) {
                     this.failedList.add(test);
                     this.printer.printFail();
-                    console.log(e.getMessage());
                 } else {
                     this.errorList.add(test);
                     this.printer.printError();

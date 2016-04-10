@@ -42,8 +42,16 @@ namespace FreeElephants.TSxUnit.Printer {
                 summaryContent += util.format("OK (%d tests, %d assertions)", testsCounter, assertCounter);
             } else {
                 let failuresCounter = suiteSummary.getNumberOfFailed();
+                let errorsCounter = suiteSummary.getNumberOfErrors();
+
+                summaryContent += "FAILURES!\n";
+
                 if (failuresCounter > 0) {
                     summaryContent += util.format("Failures: %d", failuresCounter);
+                }
+
+                if (errorsCounter > 0) {
+                    summaryContent += util.format("Errors: %d", errorsCounter);
                 }
             }
 
