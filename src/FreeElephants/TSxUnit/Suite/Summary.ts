@@ -26,15 +26,15 @@ namespace FreeElephants.TSxUnit.Suite {
             return this.getFailedList().count();
         }
 
-        public getErrorList(): FreeElephants.TSxUnit.Suite.ResultList {
+        public getErrorList(): ResultList {
             return this.errorList;
         }
 
-        public getFailedList(): FreeElephants.TSxUnit.Suite.ResultList {
+        public getFailedList(): ResultList {
             return this.failedList;
         }
 
-        public getPassedList(): FreeElephants.TSxUnit.Suite.ResultList {
+        public getPassedList(): ResultList {
             return this.passedList;
         }
 

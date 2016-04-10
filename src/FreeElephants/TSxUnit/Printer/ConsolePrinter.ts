@@ -5,6 +5,7 @@ namespace FreeElephants.TSxUnit.Printer {
     export class ConsolePrinter implements PrinterInterface {
 
         private buffer: string = "";
+        private util = require("util");
 
         printError(): void {
             this.addToBuffer("E");
@@ -34,31 +35,55 @@ namespace FreeElephants.TSxUnit.Printer {
 
         printSummary(suiteSummary: Summary): void {
             let summaryContent = "\n";
-            let util = require("util");
 
             if (suiteSummary.isOk()) {
                 let testsCounter = suiteSummary.getNumberOfPassed();
                 let assertCounter = suiteSummary.getNumberOfAssertions();
-                summaryContent += util.format("OK (%d tests, %d assertions)", testsCounter, assertCounter);
+                summaryContent += this.format("OK (%d tests, %d assertions)", testsCounter, assertCounter);
             } else {
-                let failuresCounter = suiteSummary.getNumberOfFailed();
                 let errorsCounter = suiteSummary.getNumberOfErrors();
+                let hasErrors = errorsCounter > 0;
+                let failuresCounter = suiteSummary.getNumberOfFailed();
+                let hasFailures = failuresCounter > 0;
 
-                summaryContent += "FAILURES!\n";
 
-                if (failuresCounter > 0) {
-                    summaryContent += util.format("Failures: %d", failuresCounter);
+                if (hasErrors) {
+                    summaryContent += this.buildFailuresHeader("error", errorsCounter);
+                    // TODO format errors description
                 }
 
-                if (errorsCounter > 0) {
-                    summaryContent += util.format("Errors: %d", errorsCounter);
+                if (hasFailures) {
+                    summaryContent += this.buildFailuresHeader("failure", failuresCounter);
+                    // TODO format failures description
+                }
+
+                // format summary footer
+                summaryContent += "FAILURES!\n";
+
+                if (hasErrors) {
+                    summaryContent += this.format("Errors: %d", errorsCounter);
+                }
+
+                if (hasFailures) {
+                    summaryContent += this.format("Failures: %d", failuresCounter);
                 }
             }
 
-            summaryContent +=
-                this.addToBuffer(summaryContent);
+            this.addToBuffer(summaryContent);
         }
 
+        private format(format, ...param: any[]): string {
+            return this.util.format(format, ...param);
+        }
+
+        private buildFailuresHeader(noun: string, counter: number): string {
+            let verb = "was";
+            if (counter > 1) {
+                verb = "were";
+                noun += "s";
+            }
+            return this.format("There %s %d %s", verb, counter, noun);
+        }
 
     }
 }
