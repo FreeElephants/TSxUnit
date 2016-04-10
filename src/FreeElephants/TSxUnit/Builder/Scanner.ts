@@ -17,7 +17,7 @@ namespace FreeElephants.TSxUnit.Builder {
         }
 
         getShortClassNameFromClassFile(filename: string): string {
-            let fileContent = this.fs.readFileSync(filename, {encoding: 'utf8'});
+            let fileContent = this.fs.readFileSync(filename, {encoding: "utf8"});
             let classNameMatch = fileContent.match(/class{1}\s{1,}([\w\d_]*)\s?/);
             let classNameEntry = classNameMatch[1];
             return classNameEntry;
@@ -25,7 +25,7 @@ namespace FreeElephants.TSxUnit.Builder {
         }
 
         getFullClassNameFromClassFile(filename: string): string {
-            return this.getNamespaceFromClassFile(filename) + '.' + this.getShortClassNameFromClassFile(filename);
+            return this.getNamespaceFromClassFile(filename) + "." + this.getShortClassNameFromClassFile(filename);
         }
     }
 }

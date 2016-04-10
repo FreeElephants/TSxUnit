@@ -38,7 +38,7 @@ namespace FreeElephants.TSxUnit {
                 if (pathToRunRegExp.test(testCaseFileName)) {
                     let testCase = testCases[testCaseFileName];
                     // this.debug("run test case", testCase);
-                    totalNumberOfAssertions += this.runTestCase(testCase, testMethodToRun);
+                    totalNumberOfAssertions += this.runTestCase(testCase, testCaseFileName, testMethodToRun);
                 }
             }
 
@@ -60,13 +60,14 @@ namespace FreeElephants.TSxUnit {
             }
         }
 
-        protected runTestCase(testCase: TestCase, testMethodToRun: string = ".*"): number {
+        protected runTestCase(testCase: TestCase, testCaseFileName: string, testMethodToRun: string): number {
             let testCaseMethods = this.getTestMethods(testCase);
             let testMethodToRunRegExp = this.buildRunRegExp(testMethodToRun);
             for (let i in testCaseMethods) {
                 let testMethod = testCaseMethods[i];
                 if (testMethodToRunRegExp.test(testMethod)) {
-                    this.runTestCaseMethod(testCase, testMethod);
+                    let test = new TestCaseMethod(testCase, testCaseFileName, testMethod);
+                    this.runTestCaseMethod(test);
                 }
             }
 
@@ -88,27 +89,26 @@ namespace FreeElephants.TSxUnit {
         }
 
 
-        protected runTestCaseMethod(testCase: TestCase, methodName: string) {
+        protected runTestCaseMethod(test: TestCaseMethod) {
             // this.debug("run test " + methodName);
-            testCase.setUp();
-
-            let test = new TestCaseMethod(testCase, methodName);
+            test.getTestCase().setUp();
 
             try {
-                testCase[methodName]();
+                test.execute();
                 this.passedList.add(test);
                 this.printer.printSuccess();
             } catch (e) {
                 if (e instanceof FailedAssertionException) {
-                    this.failedList.add(test);
+                    this.failedList.add(test, e);
                     this.printer.printFail();
                 } else {
-                    this.errorList.add(test);
+                    this.errorList.add(test, e);
                     this.printer.printError();
+                    //this.debug(e);
                 }
             }
 
-            testCase.tearDown();
+            test.getTestCase().tearDown();
         }
 
         private buildRunRegExp(pathPathToRun: string): RegExp {

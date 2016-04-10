@@ -1,6 +1,10 @@
+///<reference path="../Runner.ts"/>
+///<reference path="../Test/TestCaseMethod.ts"/>
+
 namespace FreeElephants.TSxUnit.Printer {
 
     import Summary = FreeElephants.TSxUnit.Suite.Summary;
+    import TestCaseMethod = FreeElephants.TSxUnit.Test.TestCaseMethod;
 
     export class ConsolePrinter implements PrinterInterface {
 
@@ -36,9 +40,10 @@ namespace FreeElephants.TSxUnit.Printer {
         printSummary(suiteSummary: Summary): void {
             let summaryContent = "\n";
 
+            let testsCounter = suiteSummary.getNumberOfPassed();
+            let assertCounter = suiteSummary.getNumberOfAssertions();
+
             if (suiteSummary.isOk()) {
-                let testsCounter = suiteSummary.getNumberOfPassed();
-                let assertCounter = suiteSummary.getNumberOfAssertions();
                 summaryContent += this.format("OK (%d tests, %d assertions)", testsCounter, assertCounter);
             } else {
                 let errorsCounter = suiteSummary.getNumberOfErrors();
@@ -46,20 +51,25 @@ namespace FreeElephants.TSxUnit.Printer {
                 let failuresCounter = suiteSummary.getNumberOfFailed();
                 let hasFailures = failuresCounter > 0;
 
-
                 if (hasErrors) {
                     summaryContent += this.buildFailuresHeader("error", errorsCounter);
-                    // TODO format errors description
+
+                    suiteSummary.getErrorsTests().forEach(function (method: TestCaseMethod, i: number) {
+                        summaryContent += this.buildFailureReason(method, i);
+                    }, this);
                 }
 
                 if (hasFailures) {
                     summaryContent += this.buildFailuresHeader("failure", failuresCounter);
-                    // TODO format failures description
+
+                    suiteSummary.getFailedTests().forEach(function (method: TestCaseMethod, i: number) {
+                        summaryContent += this.buildFailureReason(method, i);
+                    }, this);
                 }
 
                 // format summary footer
                 summaryContent += "FAILURES!\n";
-
+                summaryContent += this.format("Tests: %d, Assertions: %d, ", testsCounter, assertCounter);
                 if (hasErrors) {
                     summaryContent += this.format("Errors: %d", errorsCounter);
                 }
@@ -82,7 +92,12 @@ namespace FreeElephants.TSxUnit.Printer {
                 verb = "were";
                 noun += "s";
             }
-            return this.format("There %s %d %s", verb, counter, noun);
+            return this.format("There %s %d %s:\n", verb, counter, noun);
+        }
+
+        private buildFailureReason(method: TestCaseMethod, i: number): string {
+            return this.format("%d) %s() [%s] \n", i + 1, method.getFullyQualifiedName(), method.getSource())
+                + this.format("%s\n\n%s\n\n", method.getResult().getMessage(), method.getResult().getStack());
         }
 
     }

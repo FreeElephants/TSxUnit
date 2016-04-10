@@ -1,11 +1,13 @@
 namespace FreeElephants.TSxUnit.Exception {
 
     export class BaseException extends Error {
+        private stackTraceLimit;
 
         public constructor(msg) {
             super(msg);
             this.name = Object.getPrototypeOf(this).constructor.name;
             this.message = msg;
+            this.stackTraceLimit = 5;
             this.stack = new Error().stack;
         }
 

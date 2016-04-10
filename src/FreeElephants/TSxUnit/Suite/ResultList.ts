@@ -11,12 +11,22 @@ namespace FreeElephants.TSxUnit.Suite {
          */
         private list = [];
 
-        public add(entry: TestCaseMethod) {
-            this.list.push(TestCaseMethod);
+        public add(entry: TestCaseMethod, resultOrReason = null) {
+            entry.setResult(resultOrReason);
+            this.list.push(entry);
         }
 
         public count(): number {
             return this.list.length;
+        }
+
+        /**
+         * Get copy of list with TestCaseMethods
+         *
+         * @returns TestCaseMethod[]
+         */
+        public toArray(): Array<TestCaseMethod> {
+            return this.list.slice();
         }
 
     }

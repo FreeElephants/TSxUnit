@@ -1,4 +1,8 @@
+///<reference path="ResultList.ts"/>
+///<reference path="../Test/TestCaseMethod.ts"/>
 namespace FreeElephants.TSxUnit.Suite {
+
+    import TestCaseMethod = FreeElephants.TSxUnit.Test.TestCaseMethod;
 
     export class Summary {
 
@@ -15,27 +19,27 @@ namespace FreeElephants.TSxUnit.Suite {
         }
 
         public getNumberOfPassed(): number {
-            return this.getPassedList().count();
+            return this.passedList.count();
         }
 
         public getNumberOfErrors(): number {
-            return this.getErrorList().count();
+            return this.errorList.count();
         }
 
         public getNumberOfFailed(): number {
-            return this.getFailedList().count();
+            return this.failedList.count();
         }
 
-        public getErrorList(): ResultList {
-            return this.errorList;
+        public getErrorsTests(): Array<TestCaseMethod> {
+            return this.errorList.toArray();
         }
 
-        public getFailedList(): ResultList {
-            return this.failedList;
+        public getFailedTests(): Array<TestCaseMethod> {
+            return this.failedList.toArray();
         }
 
-        public getPassedList(): ResultList {
-            return this.passedList;
+        public getPassedTests(): Array<TestCaseMethod> {
+            return this.passedList.toArray();
         }
 
         public isOk(): boolean {
