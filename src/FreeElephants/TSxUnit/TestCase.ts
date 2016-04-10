@@ -53,6 +53,11 @@ namespace FreeElephants.TSxUnit {
             Assert.assertNull(expr, msg);
         }
 
+        protected assertContains(needle, haystack, msg: string = this._undefined): void {
+            this.numberOfAsserts++;
+            Assert.assertContains(needle, haystack, msg);
+        }
+
         public getNumberOfAssertions(): number {
             return this.numberOfAsserts;
         }
@@ -78,7 +83,7 @@ namespace FreeElephants.TSxUnit {
          */
         protected getMockBuilder(className) {
             return new Builder(className);
-                //this.mockito.JsMockito.mock(className);
+            //this.mockito.JsMockito.mock(className);
         }
     }
 

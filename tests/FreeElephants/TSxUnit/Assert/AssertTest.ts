@@ -41,5 +41,17 @@ namespace FreeElephants.TSxUnit.Assert {
         public testAssertNull() {
             this.assertNull(null);
         }
+
+        public testAssertContainsNeedleInStringObject() {
+            this.assertContains("foo", new String("foobar"));
+        }
+
+        public testAssertContainsNeedleInStringPrimitive() {
+            this.assertContains("foo", "barfoo");
+        }
+
+        public testAssertContainsNeedleInArray() {
+            this.assertContains("foo", ["bar", "foo"]);
+        }
     }
 }

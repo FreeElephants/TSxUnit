@@ -19,9 +19,6 @@ namespace FreeElephants.TSxUnit {
 
         private isDebugVerboseOn = true;
         private printer: PrinterInterface;
-        private numberOfPassed = 0;
-        private numberOfFailed = 0;
-        private numberOfErrors = 0;
 
         private passedList = new ResultList();
         private failedList = new ResultList();
@@ -105,10 +102,10 @@ namespace FreeElephants.TSxUnit {
                 if (e instanceof FailedAssertionException) {
                     this.failedList.add(test);
                     this.printer.printFail();
+                    console.log(e.getMessage());
                 } else {
                     this.errorList.add(test);
                     this.printer.printError();
-                    this.debug(e);
                 }
             }
 

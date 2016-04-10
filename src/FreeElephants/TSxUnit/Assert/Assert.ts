@@ -1,6 +1,9 @@
 ///<reference path="FailedAssertionException.ts"/>
+///<reference path="../Exception/InvalidArgumentException.ts"/>
 
 namespace FreeElephants.TSxUnit.Assert {
+
+    import InvalidArgumentException = FreeElephants.TSxUnit.Exception.InvalidArgumentException;
 
     export class Assert {
 
@@ -38,15 +41,25 @@ namespace FreeElephants.TSxUnit.Assert {
             }
         }
 
-        public static assertNotNull(expr, msg: string = "Failed assertion that value is not null. ") {
+        public static assertNotNull(expr, msg: string = "Failed asserting that value is not null. ") {
             if (expr === null) {
                 throw new FailedAssertionException(msg);
             }
         }
 
-        public static assertNull(expr, msg: string = "Failed assertion that value is null. ") {
+        public static assertNull(expr, msg: string = "Failed asserting that value is null. ") {
             if (expr !== null) {
                 throw new FailedAssertionException(msg);
+            }
+        }
+
+        public static assertContains(needle, haystack, msg: string = "Failed asserting that value contains in haystack. ") {
+            if (haystack instanceof Array || haystack instanceof String || typeof haystack === "string") {
+                if (haystack.indexOf(needle) === -1) {
+                    throw new FailedAssertionException(msg);
+                }
+            } else {
+                throw new InvalidArgumentException("Haystack must be a String or Array");
             }
         }
 

@@ -1,6 +1,9 @@
+///<reference path="../Exception/BaseException.ts"/>
 namespace FreeElephants.TSxUnit.Assert {
 
-    export class FailedAssertionException extends Error {
+    import BaseException = FreeElephants.TSxUnit.Exception.BaseException;
+
+    export class FailedAssertionException extends BaseException {
 
     }
 }

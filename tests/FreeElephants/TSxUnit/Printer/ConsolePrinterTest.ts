@@ -11,7 +11,7 @@ namespace FreeElephants.TSxUnit.Printer {
                 .getMock();
 
             printer.printSummary(summary);
-            this.assertTrue(printer.getBuffer().search("Failures: 1") != -1);
+            this.assertContains("Failures: 1", printer.getBuffer());
         }
 
     }

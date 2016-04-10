@@ -12,6 +12,8 @@ See [ROADMAP](ROADMAP.md).
     - total number of tests 
     - total number of assertions
 - Mock Builder (based on JSMockito). 
+- assertContains for strings and arrays. 
+- Super class for library exceptions. 
 
 
 ## [0.2.1] - 2016-04-09
