@@ -108,6 +108,7 @@ namespace FreeElephants.TSxUnit {
                 } else {
                     this.errorList.add(test);
                     this.printer.printError();
+                    this.debug(e);
                 }
             }
 

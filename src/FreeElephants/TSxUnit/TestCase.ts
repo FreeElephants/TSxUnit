@@ -1,4 +1,5 @@
 ///<reference path="Assert/Assert.ts"/>
+///<reference path="Mock/Builder.ts"/>
 
 /**
  * @author samizdam
@@ -6,6 +7,7 @@
 namespace FreeElephants.TSxUnit {
 
     import Assert = FreeElephants.TSxUnit.Assert.Assert;
+    import Builder = FreeElephants.TSxUnit.Mock.Builder;
 
     export abstract class TestCase {
 
@@ -67,6 +69,16 @@ namespace FreeElephants.TSxUnit {
          */
         public tearDown(): void {
 
+        }
+
+        /**
+         *
+         * @param className
+         * @returns {T}
+         */
+        protected getMockBuilder(className) {
+            return new Builder(className);
+                //this.mockito.JsMockito.mock(className);
         }
     }
 

@@ -9,7 +9,7 @@ namespace FreeElephants.TSxUnit.Builder {
         }
 
         getNamespaceFromClassFile(filename: string): string {
-            let fileContent = this.fs.readFileSync(filename, {encoding: 'utf8'});
+            let fileContent = this.fs.readFileSync(filename, {encoding: "utf8"});
             let namespaceMatch = fileContent.match(/[namespace|module]{1}\s{1,}([\w.]*)[\s?\{]/);
             let namespaceEntry = namespaceMatch[1];
             return namespaceEntry;
