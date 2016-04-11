@@ -36,7 +36,7 @@
     "typescript": "1.8.9",
     "typings": "0.7.9"
   },
-  "version": "0.3.0",
+  "version": "0.3.1",
   "devDependencies": {
     "tslint": "^3.7.1"
   }
