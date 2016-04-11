@@ -17,8 +17,9 @@
     "typings": "typings",
     "instanbul": "instanbul",
     "remap-istanbul": "remap-istanbul",
-    "build-launch-builder": "tsc @tsxunit-launch-builder.config",
+    "build": "echo 'Lucy in the sky with diamonds'",
     "pretest": "npm run build-launch-builder && node bin/launch-builder.js tests/ && tsc -p tests/",
+    "build-launch-builder": "tsc @tsxunit-launch-builder.config",
     "test": "node tests/tests.js",
     "coverage": "istanbul cover tests/test.js && remap-istanbul --input coverage/coverage.json --output coverage/html-report --type html"
   },
