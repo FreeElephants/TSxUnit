@@ -37,10 +37,22 @@ namespace FreeElephants.TSxUnit.Printer {
         flushBuffer(): number;
 
         /**
+         * Add intro info to output
+         */
+        printIntro(): void;
+
+        /**
+         * Print string with execution time
+         * @param timeInMs
+         */
+        printExecutionTime(timeInMs: number): void;
+        /**
          * Add summary info.
          *
          * @param suiteSummary
          */
         printSummary(suiteSummary: Summary): void;
+
+
     }
 }

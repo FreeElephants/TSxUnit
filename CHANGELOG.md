@@ -6,14 +6,19 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
-## [0.3.0] - 2016-04-09
+## [0.3.0] - 2016-04-11
 ### Added
 - Summary info: 
+    - show vendor and lib name 
     - total number of tests 
     - total number of assertions
-- Mock Builder (based on JSMockito). 
+    - number of Passed, Failed and Error tests
+    - names of failed assertions with reason: test case name and message
+    - names of test with errors with reasons (catches error)
+    - total time of execution
+- Mock Builder (based on JSMockito): for mock TS classes. 
 - assertContains for strings and arrays. 
-- Super class for library exceptions. 
+- Super class for library exceptions extended from build-in `Error`. 
 
 
 ## [0.2.1] - 2016-04-09

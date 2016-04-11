@@ -3,18 +3,6 @@
 List of "must have" features in v1.0.0-rc.  
 E.g. every minor 0.x version - it's milestone before public release. 
 
-## v0.3.0
-
-### Summary info: 
-- before execution: 
-    - show vendor and lib name 
-    - show info and path about launched suite 
-- after execution: 
-    - number of Passed, Failed and Error tests
-    - total time of execution
-    - names of failed assertions with reason: test case name and message
-    - names of test with errors with reasons (catched error)
-
 ## v0.4.0
 
 ### TestCase.setUpBeforeClass() and TestCase.tearDownAfterClass()

@@ -30,9 +30,12 @@ namespace FreeElephants.TSxUnit {
         }
 
         public run(pathPathToRun: string = ".*", testMethodToRun: string = ".*"): number {
+            let startTimestamp = new Date().getTime();
             let testCases = this.map.getTestCases();
             let pathToRunRegExp = this.buildRunRegExp(pathPathToRun);
             let totalNumberOfAssertions = 0;
+
+            this.printer.printIntro();
 
             for (let testCaseFileName in testCases) {
                 if (pathToRunRegExp.test(testCaseFileName)) {
@@ -42,7 +45,10 @@ namespace FreeElephants.TSxUnit {
                 }
             }
 
+            this.printer.printExecutionTime(new Date().getTime() - startTimestamp);
+
             let suiteSummary = new Summary(this.passedList, this.failedList, this.errorList, totalNumberOfAssertions);
+
             this.printer.printSummary(suiteSummary);
 
             this.printer.flushBuffer();

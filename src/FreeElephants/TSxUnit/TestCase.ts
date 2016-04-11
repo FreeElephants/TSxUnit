@@ -83,7 +83,6 @@ namespace FreeElephants.TSxUnit {
          */
         protected getMockBuilder(className) {
             return new Builder(className);
-            //this.mockito.JsMockito.mock(className);
         }
     }
 

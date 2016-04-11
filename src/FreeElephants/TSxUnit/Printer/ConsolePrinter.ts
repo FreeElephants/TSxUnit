@@ -11,6 +11,11 @@ namespace FreeElephants.TSxUnit.Printer {
         private buffer: string = "";
         private util = require("util");
 
+        printIntro(): void {
+            let introString = this.format("TSxUnit %s by FreeElephants. \n\n", TS_X_UNIT_VERSION);
+            this.addToBuffer(introString);
+        }
+
         printError(): void {
             this.addToBuffer("E");
         }
@@ -37,8 +42,22 @@ namespace FreeElephants.TSxUnit.Printer {
             return buffer.length;
         }
 
+        printExecutionTime(timeInMs: number): void {
+            let timeString = this.format("\nTime: %s. \n", this.getHumanTimeString(timeInMs));
+            this.addToBuffer(timeString);
+        }
+
+        /**
+         * TODO format minutes
+         * @param timeInMs
+         */
+        private getHumanTimeString(timeInMs: number): string {
+            let timeInSec = timeInMs / 1000;
+            return this.format("%d sec", timeInSec.toFixed(3));
+        }
+
         printSummary(suiteSummary: Summary): void {
-            let summaryContent = "\n";
+            let summaryContent = "\n\n";
 
             let testsCounter = suiteSummary.getNumberOfPassed();
             let assertCounter = suiteSummary.getNumberOfAssertions();

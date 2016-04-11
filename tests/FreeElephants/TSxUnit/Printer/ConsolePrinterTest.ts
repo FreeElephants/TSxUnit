@@ -9,6 +9,7 @@ namespace FreeElephants.TSxUnit.Printer {
 
         public testSummaryWithFailed() {
             let printer = new ConsolePrinter();
+            // TODO mock interface here instead abstract class, after we can mock its.
             let reason = this.getMockBuilder(AbstractResultAdapter)
                 .stubMethodWithValue("getMessage", "Failed asserting that foo is bar. ")
                 .stubMethodWithValue("getStack", "")

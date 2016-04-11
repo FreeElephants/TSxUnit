@@ -8,3 +8,5 @@
 ///<reference path="FreeElephants/TSxUnit/Suite/Summary.ts"/>
 ///<reference path="FreeElephants/TSxUnit/Suite/ResultList.ts"/>
 
+let packageInfo = require("../package.json");
+const TS_X_UNIT_VERSION = packageInfo.version;
