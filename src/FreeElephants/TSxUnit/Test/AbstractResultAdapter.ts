@@ -11,16 +11,19 @@ namespace FreeElephants.TSxUnit.Test {
          * @returns ResultAdapterInterface
          */
         public static create(result) {
+            let adapter: ResultAdapterInterface;
             if (result instanceof BaseException) {
-                return new ExceptionAdapter(result);
+                adapter = new ExceptionAdapter(result);
             } else if (result instanceof Error) {
-                return new ErrorAdapter(result);
+                adapter = new ErrorAdapter(result);
             } else {
-                return new PassedAdapter();
+                adapter = new PassedAdapter();
             }
+            return adapter;
         }
 
         abstract getMessage(): string;
+
         abstract getStack(): string;
     }
 

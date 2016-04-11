@@ -17,7 +17,6 @@
     "typings": "typings",
     "instanbul": "instanbul",
     "remap-istanbul": "remap-istanbul",
-    "build": "tsc @tsxunit-build.config",
     "build-launch-builder": "tsc @tsxunit-launch-builder.config",
     "pretest": "npm run build-launch-builder && node bin/launch-builder.js tests/ && tsc -p tests/",
     "test": "node tests/tests.js",

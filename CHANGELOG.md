@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## [0.3.1] - 2016-04-12
+### Removed
+- Build to js - this feature not used. 
+
 ## [0.3.0] - 2016-04-11
 ### Added
 - Summary info: 
