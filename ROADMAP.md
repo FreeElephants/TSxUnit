@@ -3,10 +3,6 @@
 List of "must have" features in v1.0.0-rc.  
 E.g. every minor 0.x version - it's milestone before public release. 
 
-## v0.4.0
-
-### TestCase.setUpBeforeClass() and TestCase.tearDownAfterClass()
-
 ## v0.5.0
 
 ### Verbose level: 

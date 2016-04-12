@@ -51,7 +51,7 @@ Now, you can use one simple command `npm test` for rebuild and run you tests!
 
 ### For Contributors: 
 
-Clone this repo. 
+Clone this repo: 
 
 ```
 $ git clone git@github.com:FreeElephants/TSxUnit.git 

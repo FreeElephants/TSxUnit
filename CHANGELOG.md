@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.4.0
+### Added
+- TestCase.setUpBeforeClass() 
+- TestCase.tearDownAfterClass()
+
 ## [0.3.1] - 2016-04-12
 ### Removed
 - Build to js - this feature not used. 

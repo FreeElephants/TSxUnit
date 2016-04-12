@@ -62,18 +62,29 @@ namespace FreeElephants.TSxUnit {
             return this.numberOfAsserts;
         }
 
+
+        /**
+         * This method will be called once before class cases be executed
+         */
+        public setUpBeforeClass(): void {
+        }
+
         /**
          * This method will be called before every test method
          */
         public setUp(): void {
-
         }
 
         /**
          * This method will be called after every test method
          */
         public tearDown(): void {
+        }
 
+        /**
+         * This method will be called once after execution all test cases in this class
+         */
+        public tearDownAfterClass(): void {
         }
 
         /**
@@ -84,6 +95,7 @@ namespace FreeElephants.TSxUnit {
         protected getMockBuilder(className) {
             return new Builder(className);
         }
+
     }
 
 

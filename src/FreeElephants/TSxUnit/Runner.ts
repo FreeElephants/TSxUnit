@@ -69,6 +69,9 @@ namespace FreeElephants.TSxUnit {
         protected runTestCase(testCase: TestCase, testCaseFileName: string, testMethodToRun: string): number {
             let testCaseMethods = this.getTestMethods(testCase);
             let testMethodToRunRegExp = this.buildRunRegExp(testMethodToRun);
+
+            testCase.setUpBeforeClass();
+
             for (let i in testCaseMethods) {
                 let testMethod = testCaseMethods[i];
                 if (testMethodToRunRegExp.test(testMethod)) {
@@ -76,6 +79,8 @@ namespace FreeElephants.TSxUnit {
                     this.runTestCaseMethod(test);
                 }
             }
+
+            testCase.tearDownAfterClass();
 
             return testCase.getNumberOfAssertions();
         }
@@ -110,7 +115,6 @@ namespace FreeElephants.TSxUnit {
                 } else {
                     this.errorList.add(test, e);
                     this.printer.printError();
-                    //this.debug(e);
                 }
             }
 
