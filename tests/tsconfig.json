@@ -3,6 +3,7 @@
     "module": "amd",
     "rootDir": "../src",
     "moduleResolution": "node",
+    "sourceMap": true,
     "out": "tests/tests.js"
   }
 }

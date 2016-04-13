@@ -2,13 +2,16 @@
   "compilerOptions": {
     "module": "amd",
     "target": "es3",
-    "out": "test.js",
+    "out": "index.js",
     "sourceMap": true,
     "removeComments": true
   },
   "exclude": [
-    "node_modules",
+    "assets",
     "bin",
+    "node_modules",
+    "tests",
+    "src/reference.ext.ts",
     "index.js",
     "index.d.ts",
     "src/launch-builder.ts",

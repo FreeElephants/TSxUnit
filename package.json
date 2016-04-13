@@ -15,13 +15,13 @@
   "scripts": {
     "tsc": "tsc",
     "typings": "typings",
-    "instanbul": "instanbul",
+    "istanbul": "istanbul",
     "remap-istanbul": "remap-istanbul",
     "build": "echo 'Lucy in the sky with diamonds'",
     "pretest": "npm run build-launch-builder && node bin/launch-builder.js tests/ && tsc -p tests/",
     "build-launch-builder": "tsc @tsxunit-launch-builder.config",
     "test": "node tests/tests.js",
-    "coverage": "istanbul cover tests/test.js && remap-istanbul --input coverage/coverage.json --output coverage/html-report --type html"
+    "coverage": "istanbul cover tests/tests.js && remap-istanbul --input coverage/coverage.json --output coverage/html-report --type html"
   },
   "bin": {
     "launch-builder": "bin/launch-builder"
