@@ -10,12 +10,14 @@ namespace FreeElephants.TSxUnit {
 
     export abstract class DocumentTestCase extends TestCase {
 
-        protected assertElementExists(doc: Document, selector: string) {
+        protected assertElementExists(doc: Document, selector: string): void {
+            this.numberOfAsserts++;
             DomAssert.assertElementExists(doc, selector, this._undefined);
         }
 
 
-        protected assertElementNotExists(doc: Document, selector: string) {
+        protected assertElementNotExists(doc: Document, selector: string): void {
+            this.numberOfAsserts++;
             DomAssert.assertElementNotExists(doc, selector, this._undefined);
         }
 

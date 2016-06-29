@@ -46,8 +46,7 @@ See sample of usage: [in CalcTestExample project](https://github.com/FreeElephan
     "test": "node tests/tests.js"
     ```
     
-Now, you can use one simple command `npm test` for rebuild and run you tests! 
-
+Now, you can use one simple command `npm test` for rebuild and run you tests!
 
 ### For Contributors: 
 

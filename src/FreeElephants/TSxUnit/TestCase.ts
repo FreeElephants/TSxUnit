@@ -16,7 +16,7 @@ namespace FreeElephants.TSxUnit {
          */
         protected _undefined;
 
-        private numberOfAsserts: number = 0;
+        protected numberOfAsserts: number = 0;
 
         protected assertTrue(expr: boolean, msg: string = this._undefined): void {
             this.numberOfAsserts++;
