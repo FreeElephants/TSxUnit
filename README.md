@@ -13,7 +13,7 @@
 
 ### In Your Project
 
-Dependencies and pre-requirements: installed type definitions for node (existed file typings/main/ambient/node/index.d.ts in your project). 
+Dependencies and pre-requirements: installed type definitions for node in your project. 
 
 See sample of usage: [in CalcTestExample project](https://github.com/FreeElephants/CalcTestExample). 
 
