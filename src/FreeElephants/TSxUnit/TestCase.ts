@@ -14,7 +14,7 @@ namespace FreeElephants.TSxUnit {
         /**
          * Exploit some JS magic: for use default value of assertion message if msg argument not present.
          */
-        private _undefined;
+        protected _undefined;
 
         private numberOfAsserts: number = 0;
 

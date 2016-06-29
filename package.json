@@ -32,6 +32,8 @@
   },
   "dependencies": {
     "istanbul": "^0.4.2",
+    "jquery": "^3.0.0",
+    "jsdom": "^9.3.0",
     "jsmockito": "^1.0.5",
     "remap-istanbul": "^0.5.1",
     "sync-request": "^3.0.1",

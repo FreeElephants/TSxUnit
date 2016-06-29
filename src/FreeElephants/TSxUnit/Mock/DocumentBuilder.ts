@@ -5,15 +5,19 @@ namespace FreeElephants.TSxUnit.Mock {
 
         private source: string;
 
-        public constructor(rawHtml: string) {
-            super();
-            this.source = rawHtml;
+        private static request = require("sync-request");
+
+        public setSource(source: string): this {
+            this.source = source;
+            return this;
         }
 
-        static stubDocumentFromUrl(url: string): DocumentBuilder {
+        public static createFromUrl(url: string): Document {
             let request = require("sync-request");
-            let res = request("GET", url);
-            return new DocumentBuilder(res.getBody());
+            let res = this.request("GET", url);
+            let builder = new DocumentBuilder();
+            builder.setSource(res.getBody());
+            return builder.getMock();
         }
 
         public getMock(): Document {
