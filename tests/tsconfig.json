@@ -4,6 +4,8 @@
     "rootDir": "../src",
     "moduleResolution": "node",
     "sourceMap": true,
-    "out": "tests/tests.js"
+    "out": "tests/tests.js",
+    "noLib": false,
+    "noResolve": false
   }
 }

@@ -34,6 +34,7 @@
     "istanbul": "^0.4.2",
     "jsmockito": "^1.0.5",
     "remap-istanbul": "^0.5.1",
+    "sync-request": "^3.0.1",
     "typescript": "1.8.9",
     "typings": "0.7.12"
   },

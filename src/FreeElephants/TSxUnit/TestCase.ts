@@ -1,5 +1,5 @@
 ///<reference path="Assert/Assert.ts"/>
-///<reference path="Mock/Builder.ts"/>
+///<reference path="Mock/ObjectBuilder.ts"/>
 
 /**
  * @author samizdam
@@ -7,7 +7,7 @@
 namespace FreeElephants.TSxUnit {
 
     import Assert = FreeElephants.TSxUnit.Assert.Assert;
-    import Builder = FreeElephants.TSxUnit.Mock.Builder;
+    import Builder = FreeElephants.TSxUnit.Mock.ObjectBuilder;
 
     export abstract class TestCase {
 
