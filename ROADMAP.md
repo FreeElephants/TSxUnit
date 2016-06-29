@@ -1,17 +1,15 @@
 # Road map for first major version 
 
 List of "must have" features in v1.0.0-rc.  
-E.g. every minor 0.x version - it's milestone before public release. 
-
-## v0.5.0
-
-### Verbose level: 
-- minimal info by default: 
-    - only single . (dot) for passed, `F` for for failed and `E` liters for test with error  
-- more with given -v option:
-    - print in output name for every executed test and method at new line
+E.g. every minor 0.x version - it's milestone before public release.
 
 ## v0.6.0
+
+### Verbose level:
+- minimal info by default:
+    - only single . (dot) for passed, `F` for for failed and `E` liters for test with error
+- more with given -v option:
+    - print in output name for every executed test and method at new line
 
 ### Logging test results in standard formats:
 
