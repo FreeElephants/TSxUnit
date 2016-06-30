@@ -6,7 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - DocumentEventBuilder
-- DocumentTestCase assertions: assertElementHasClass and assertElementNotHasClass
+- DocumentTestCase assertions: assertElementHasClass, assertElementNotHasClass, assertElementsCount
+- DocumentBuilder.createFromFile()
+
+### Fixed
+- Missed msg argument in DocumentTestCase assertions.
 
 See [ROADMAP](ROADMAP.md).
 

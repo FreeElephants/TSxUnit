@@ -29,5 +29,12 @@ namespace FreeElephants.TSxUnit.Assert {
                 throw new FailedAssertionException(msg);
             }
         }
+
+        public static assertElementsCount(document: Document, selector: string, count: number, msg: string = "Failed asserting that number of elements is X") {
+            let $ = this.jQuery(document.defaultView);
+            if ($(document).find(selector).length !== count) {
+                throw new FailedAssertionException(msg);
+            }
+        }
     }
 }

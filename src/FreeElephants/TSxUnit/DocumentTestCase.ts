@@ -12,25 +12,30 @@ namespace FreeElephants.TSxUnit {
 
     export abstract class DocumentTestCase extends TestCase {
 
-        protected assertElementExists(doc: Document, selector: string): void {
+        protected assertElementExists(doc: Document, selector: string, msg: string = this._undefined): void {
             this.numberOfAsserts++;
-            DomAssert.assertElementExists(doc, selector, this._undefined);
+            DomAssert.assertElementExists(doc, selector, msg);
         }
 
 
-        protected assertElementNotExists(doc: Document, selector: string): void {
+        protected assertElementNotExists(doc: Document, selector: string, msg: string = this._undefined): void {
             this.numberOfAsserts++;
-            DomAssert.assertElementNotExists(doc, selector, this._undefined);
+            DomAssert.assertElementNotExists(doc, selector, msg);
         }
 
-        protected assertElementHasClass(element: HTMLElement, className: string) {
+        protected assertElementHasClass(element: HTMLElement, className: string, msg: string = this._undefined): void {
             this.numberOfAsserts++;
-            DomAssert.assertElementHasClass(element, className, this._undefined);
+            DomAssert.assertElementHasClass(element, className, msg);
         }
 
-        protected assertElementNotHasClass(element: HTMLElement, className: string) {
+        protected assertElementNotHasClass(element: HTMLElement, className: string, msg: string = this._undefined): void {
             this.numberOfAsserts++;
-            DomAssert.assertElementNotHasClass(element, className, this._undefined);
+            DomAssert.assertElementNotHasClass(element, className, msg);
+        }
+
+        protected assertElementsCount(document: Document, selector: string, count: number, msg: string = this._undefined): void {
+            this.numberOfAsserts++;
+            DomAssert.assertElementsCount(document, selector, count, msg);
         }
 
         protected getFakeDocumentBuilder(): DocumentBuilder {

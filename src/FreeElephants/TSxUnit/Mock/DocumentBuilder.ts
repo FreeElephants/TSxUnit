@@ -6,6 +6,7 @@ namespace FreeElephants.TSxUnit.Mock {
         private source: string;
 
         private static request = require("sync-request");
+        private static fs = require("fs");
 
         public setSource(source: string): this {
             this.source = source;
@@ -17,6 +18,13 @@ namespace FreeElephants.TSxUnit.Mock {
             let res = this.request("GET", url);
             let builder = new DocumentBuilder();
             builder.setSource(res.getBody());
+            return builder.getMock();
+        }
+
+        public static createFromFile(filename: string): Document {
+            let content: string = this.fs.readFileSync(filename);
+            let builder = new DocumentBuilder();
+            builder.setSource(content);
             return builder.getMock();
         }
 

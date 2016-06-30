@@ -1,5 +1,6 @@
 namespace FreeElephants.TSxUnit {
 
+    import DocumentBuilder = FreeElephants.TSxUnit.Mock.DocumentBuilder;
     export class DocumentTestCaseTest extends DocumentTestCase {
 
         public testAssertElementExists() {
@@ -39,6 +40,12 @@ namespace FreeElephants.TSxUnit {
 
             this.assertElementHasClass(fooEl, "barred");
             this.assertElementNotHasClass(fooEl, "no-barred");
+        }
+
+        public testAssertElementsCount() {
+            let doc: Document = DocumentBuilder.createFromFile("tests/fixtures/foo.html");
+            this.assertElementsCount(doc, "li.foo", 3);
+
         }
     }
 }
