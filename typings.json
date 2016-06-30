@@ -2,7 +2,6 @@
   "name": "ts-x-unit",
   "version": false,
   "globalDependencies": {
-    "jquery": "registry:dt/jquery#1.10.0+20160628074423",
     "jsdom": "registry:dt/jsdom#2.0.0+20160316155526",
     "jsmockito": "registry:dt/jsmockito#1.0.4+20160316171810",
     "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#cc3d223a946f661eff871787edeb0fcb8f0db156"

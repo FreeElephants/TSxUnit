@@ -6,6 +6,26 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.6.0 - 2016-07-01
+
+### Added
+- DocumentEventBuilder
+- DocumentTestCase assertions: assertElementHasClass, assertElementNotHasClass, assertElementsCount
+- DocumentBuilder.setContentFromFile()
+- WindowBuilder.setLocation(), with optional loading
+- WindowBuilder.setSource()
+
+### Removed
+- static method WindowBuilder.createFromUrl
+
+### Changed
+- static DocumentBuilder.createFromUrl -> public DocumentBuilder.setContentFromUrl()
+- Use native querySelectors method instead jQuery. 
+- Type hinting in DOM assertions based on selectors: accept NodeSelector.
+
+### Fixed
+- Missed msg argument in DocumentTestCase assertions.
+
 ## v0.5.0 - 2016-06-30
 ### Added
 - DocumentTestCase for DOM testing.
