@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- DocumentEventBuilder
+- DocumentTestCase assertions: assertElementHasClass and assertElementNotHasClass
+
 See [ROADMAP](ROADMAP.md).
 
 ## v0.5.0 - 2016-06-30
