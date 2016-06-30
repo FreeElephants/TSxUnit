@@ -38,6 +38,16 @@ namespace FreeElephants.TSxUnit {
             DomAssert.assertElementsCount(document, selector, count, msg);
         }
 
+        protected assertElementHasAttribute(element: HTMLElement, attributeName: string, msg: string = this._undefined): void {
+            this.numberOfAsserts++;
+            DomAssert.assertElementHasAttribute(element, attributeName, msg);
+        }
+
+        protected assertElementNotHasAttribute(element: HTMLElement, attributeName: string, msg: string = this._undefined): void {
+            this.numberOfAsserts++;
+            DomAssert.assertElementNotHasAttribute(element, attributeName, msg);
+        }
+
         protected getFakeDocumentBuilder(): DocumentBuilder {
             return new DocumentBuilder();
         }

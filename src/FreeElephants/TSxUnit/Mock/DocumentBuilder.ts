@@ -3,34 +3,22 @@ namespace FreeElephants.TSxUnit.Mock {
 
     export class DocumentBuilder extends AbstractGuiStubBuilder {
 
-        private source: string;
+        private fs = require("fs");
 
-        private static request = require("sync-request");
-        private static fs = require("fs");
-
-        public setSource(source: string): this {
-            this.source = source;
+        public setContentFromUrl(url: string): this {
+            let res = this.request("GET", url);
+            this.setSource(res.getBody());
             return this;
         }
 
-        public static createFromUrl(url: string): Document {
-            let request = require("sync-request");
-            let res = this.request("GET", url);
-            let builder = new DocumentBuilder();
-            builder.setSource(res.getBody());
-            return builder.getMock();
-        }
-
-        public static createFromFile(filename: string): Document {
+        public setSourceFromFile(filename: string): this {
             let content: string = this.fs.readFileSync(filename);
-            let builder = new DocumentBuilder();
-            builder.setSource(content);
-            return builder.getMock();
+            this.setSource(content);
+            return this;
         }
 
         public getMock(): Document {
-            let jsdom = require("jsdom");
-            return jsdom.jsdom(this.source);
+            return this.createDom(this.source);
         }
     }
 }

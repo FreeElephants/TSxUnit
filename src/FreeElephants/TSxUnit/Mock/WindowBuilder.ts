@@ -5,22 +5,21 @@ namespace FreeElephants.TSxUnit.Mock {
 
         private location: string;
 
+        public setLocation(location: string, loadSource: boolean = false): this {
+            this.location = location;
+            if (loadSource) {
+                let html: string = this.request("GET", location).getBody();
+                this.setSource(html);
+            }
+            return this;
+        }
+
         public getMock(): Window {
-            let jsdom = require("jsdom");
             let config = {
                 "url": this.location,
             };
-            return jsdom.jsdom("", config).defaultView;
-        }
 
-        public static stubWindowFromUrl(location: string): Window {
-            let jsdom = require("jsdom");
-            let config = {
-                "url": location,
-            };
-            let request = require("sync-request");
-            let html: string = request("GET", location).getBody();
-            return jsdom.jsdom(html, config).defaultView;
+            return this.createDom(this.source, config).defaultView;
         }
     }
 }

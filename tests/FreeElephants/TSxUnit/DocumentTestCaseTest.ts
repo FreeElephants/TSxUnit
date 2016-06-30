@@ -41,11 +41,5 @@ namespace FreeElephants.TSxUnit {
             this.assertElementHasClass(fooEl, "barred");
             this.assertElementNotHasClass(fooEl, "no-barred");
         }
-
-        public testAssertElementsCount() {
-            let doc: Document = DocumentBuilder.createFromFile("tests/fixtures/foo.html");
-            this.assertElementsCount(doc, "li.foo", 3);
-
-        }
     }
 }
