@@ -1,6 +1,11 @@
+///<reference path="BuilderInterface.ts"/>
+/**
+ * Mock Builder for any User defined class. Abstract classes supported too.
+ * Note: support for Interfaces not implemented now.
+ */
 namespace FreeElephants.TSxUnit.Mock {
 
-    export class Builder {
+    export class ObjectBuilder implements BuilderInterface {
 
         private original;
         private mockito = require("jsmockito");

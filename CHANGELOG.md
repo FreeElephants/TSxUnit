@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.5.0 - 2016-06-30
+### Added
+- DocumentTestCase for DOM testing.
+- Window and Document Fake Builders (jsdom).
+
 ## v0.4.0 - 2016-04-13
 ### Added
 - TestCase.setUpBeforeClass() 

@@ -13,7 +13,7 @@
 
 ### In Your Project
 
-Dependencies and pre-requirements: installed type definitions for node (existed file typings/main/ambient/node/index.d.ts in your project). 
+Dependencies and pre-requirements: installed type definitions for node in your project. 
 
 See sample of usage: [in CalcTestExample project](https://github.com/FreeElephants/CalcTestExample). 
 
@@ -46,8 +46,7 @@ See sample of usage: [in CalcTestExample project](https://github.com/FreeElephan
     "test": "node tests/tests.js"
     ```
     
-Now, you can use one simple command `npm test` for rebuild and run you tests! 
-
+Now, you can use one simple command `npm test` for rebuild and run you tests!
 
 ### For Contributors: 
 
