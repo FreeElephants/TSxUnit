@@ -1,6 +1,7 @@
 namespace FreeElephants.TSxUnit {
 
     import DocumentBuilder = FreeElephants.TSxUnit.Mock.DocumentBuilder;
+    
     export class DocumentTestCaseTest extends DocumentTestCase {
 
         public testAssertElementExists() {

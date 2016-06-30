@@ -52,7 +52,6 @@ namespace FreeElephants.TSxUnit {
             return new DocumentBuilder();
         }
 
-
         protected getFakeDocumentEventBuilder(document: Document, eventInterface: string, eventType: string) {
             return new DocumentEventBuilder(document, eventInterface, eventType);
         }
