@@ -48,6 +48,27 @@ See sample of usage: [in CalcTestExample project](https://github.com/FreeElephan
     
 Now, you can use one simple command `npm test` for rebuild and run you tests!
 
+### Conventions: 
+Your test-classes must extend FreeElephants.TSxUnit.TestCase or FreeElephants.TSxUnit.DocumentTestCase and end with "Test.ts". 
+Test methods in must be starting with "test".
+ 
+### Workflow
+#### FreeElephants.TSxUnit.TestCase
+Abstract class TestCase has basic assertions and can be useful for unit-testing environment independent or Node.js code. 
+You can use mockBuilder for prepare Fake objects, based on abstract or normal TypeScript classes and JavaScript Objects, if You need it.  
+This Builder based on [JSMockito](https://github.com/cleishm/jsmockito). 
+  
+#### FreeElephants.TSxUnit.DocumentTestCase 
+Abstract class DocumentTestCase extend TestCase and designed for test client-side code.
+It contain assertions for DOM inspection, like assertElementHasClass(), assertElementExists(), assertElementsCount() etc.
+For create faked Document use DocumentBuilder: it can prepare document with HTML-fixture from local file or url. 
+DocumentEventBuilder provide API for building Fake DOM-Events. 
+This implementation based on [jsdom](https://github.com/tmpvar/jsdom). 
+
+#### How it's work? 
+After your complite all installation steps, npm task `test` in your package.json run file tests/tests.js. 
+Pretest task call LaunchBuilder: it collect all *Test.ts files, generate map of test cases and compile all test code from TS to JS.
+
 ### For Contributors: 
 
 Clone this repo: 
