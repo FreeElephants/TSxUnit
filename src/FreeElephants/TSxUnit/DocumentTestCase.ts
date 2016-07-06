@@ -23,12 +23,12 @@ namespace FreeElephants.TSxUnit {
             DomAssert.assertElementNotExists(doc, selector, msg);
         }
 
-        protected assertElementHasClass(element: HTMLElement, className: string, msg: string = this._undefined): void {
+        protected assertElementHasClass(element: Element, className: string, msg: string = this._undefined): void {
             this.numberOfAsserts++;
             DomAssert.assertElementHasClass(element, className, msg);
         }
 
-        protected assertElementNotHasClass(element: HTMLElement, className: string, msg: string = this._undefined): void {
+        protected assertElementNotHasClass(element: Element, className: string, msg: string = this._undefined): void {
             this.numberOfAsserts++;
             DomAssert.assertElementNotHasClass(element, className, msg);
         }
@@ -38,12 +38,12 @@ namespace FreeElephants.TSxUnit {
             DomAssert.assertElementsCount(document, selector, count, msg);
         }
 
-        protected assertElementHasAttribute(element: HTMLElement, attributeName: string, msg: string = this._undefined): void {
+        protected assertElementHasAttribute(element: Element, attributeName: string, msg: string = this._undefined): void {
             this.numberOfAsserts++;
             DomAssert.assertElementHasAttribute(element, attributeName, msg);
         }
 
-        protected assertElementNotHasAttribute(element: HTMLElement, attributeName: string, msg: string = this._undefined): void {
+        protected assertElementNotHasAttribute(element: Element, attributeName: string, msg: string = this._undefined): void {
             this.numberOfAsserts++;
             DomAssert.assertElementNotHasAttribute(element, attributeName, msg);
         }

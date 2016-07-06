@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.6.1 - 2016-07-07
+### Fixed
+- All DocumentTestCase attribute and class assertions accept Element instead HTMLElement, according DomAssert API. 
+
 ## v0.6.0 - 2016-07-01
 
 ### Added
