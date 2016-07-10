@@ -1,6 +1,7 @@
 namespace FreeElephants.TSxUnit.Exception {
 
     export class BaseException extends Error {
+        
         private stackTraceLimit;
 
         public constructor(msg) {

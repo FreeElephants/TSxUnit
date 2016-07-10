@@ -6,6 +6,18 @@ namespace FreeElephants.TSxUnit.Assert {
             this.assertTrue(true);
         }
 
+        public testAssertTrueFailWithUserMsg() {
+            let expectedException;
+            try {
+                this.assertTrue(false, "oops!");
+            } catch (e) {
+                expectedException = e;
+            } finally {
+                this.assertInstanceOf(FailedAssertionException, expectedException);
+                this.assertEquals("oops!\nFailed asserting that value is true. ", expectedException.getMessage());
+            }
+        }
+
         public testAssertFalse() {
             this.assertFalse(false);
         }
@@ -67,7 +79,7 @@ namespace FreeElephants.TSxUnit.Assert {
                 this.assertInstanceOf(TestCase, foo);
             } catch(e) {
                 expectedException = <FailedAssertionException> e;
-                this.assertEquals(e.getMessage(), "Failed asserting that object instance of TestCase");
+                this.assertEquals(e.getMessage(), "Failed asserting that object instance of TestCase. ");
             } finally {
                 this.assertInstanceOf(FailedAssertionException, expectedException, "FailedAssertionException wasn't throw on wrong assertion. ");
             }

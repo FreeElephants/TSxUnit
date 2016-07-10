@@ -6,6 +6,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.7.0 - 2016-07-10
+### Added
+- assertInstanceOf(): tested with abstract and non TS classes. TS interfaces can not be handled by language design =(    
+
+### Fixed
+- All assertions now accept optional message and get correct description on fail. 
+
 ## v0.6.1 - 2016-07-07
 ### Fixed
 - All DocumentTestCase attribute and class assertions accept Element instead HTMLElement, according DomAssert API. 

@@ -11,49 +11,44 @@ namespace FreeElephants.TSxUnit {
 
     export abstract class TestCase {
 
-        /**
-         * Exploit some JS magic: for use default value of assertion message if msg argument not present.
-         */
-        protected _undefined;
-
         protected numberOfAsserts: number = 0;
 
-        protected assertTrue(expr: boolean, msg: string = this._undefined): void {
+        protected assertTrue(expr: boolean, msg?: string): void {
             this.numberOfAsserts++;
             Assert.assertTrue(expr, msg);
         }
 
-        protected assertFalse(expr: boolean, msg: string = this._undefined): void {
+        protected assertFalse(expr: boolean, msg?: string): void {
             this.numberOfAsserts++;
             Assert.assertFalse(expr, msg);
         }
 
-        protected assertUndefined(expr, msg: string = this._undefined): void {
+        protected assertUndefined(expr, msg?: string): void {
             this.numberOfAsserts++;
             Assert.assertUndefined(expr, msg);
         }
 
-        protected assertNotNull(expr, msg: string = this._undefined): void {
+        protected assertNotNull(expr, msg?: string): void {
             this.numberOfAsserts++;
             Assert.assertNotNull(expr, msg);
         }
 
-        protected assertEquals(expected, actual, msg: string = this._undefined): void {
+        protected assertEquals(expected, actual, msg?: string): void {
             this.numberOfAsserts++;
             Assert.assertEquals(expected, actual, msg);
         }
 
-        protected assertSame(expected, actual, msg: string = this._undefined): void {
+        protected assertSame(expected, actual, msg?: string): void {
             this.numberOfAsserts++;
             Assert.assertSame(expected, actual, msg);
         }
 
-        protected assertNull(expr, msg: string = this._undefined): void {
+        protected assertNull(expr, msg?: string): void {
             this.numberOfAsserts++;
             Assert.assertNull(expr, msg);
         }
 
-        protected assertContains(needle, haystack, msg: string = this._undefined): void {
+        protected assertContains(needle, haystack, msg?: string): void {
             this.numberOfAsserts++;
             Assert.assertContains(needle, haystack, msg);
         }

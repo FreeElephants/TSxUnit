@@ -12,38 +12,38 @@ namespace FreeElephants.TSxUnit {
 
     export abstract class DocumentTestCase extends TestCase {
 
-        protected assertElementExists(doc: Document, selector: string, msg: string = this._undefined): void {
+        protected assertElementExists(doc: Document, selector: string, msg?: string): void {
             this.numberOfAsserts++;
             DomAssert.assertElementExists(doc, selector, msg);
         }
 
 
-        protected assertElementNotExists(doc: Document, selector: string, msg: string = this._undefined): void {
+        protected assertElementNotExists(doc: Document, selector: string, msg?: string): void {
             this.numberOfAsserts++;
             DomAssert.assertElementNotExists(doc, selector, msg);
         }
 
-        protected assertElementHasClass(element: Element, className: string, msg: string = this._undefined): void {
+        protected assertElementHasClass(element: Element, className: string, msg?: string): void {
             this.numberOfAsserts++;
             DomAssert.assertElementHasClass(element, className, msg);
         }
 
-        protected assertElementNotHasClass(element: Element, className: string, msg: string = this._undefined): void {
+        protected assertElementNotHasClass(element: Element, className: string, msg?: string): void {
             this.numberOfAsserts++;
             DomAssert.assertElementNotHasClass(element, className, msg);
         }
 
-        protected assertElementsCount(document: Document, selector: string, count: number, msg: string = this._undefined): void {
+        protected assertElementsCount(document: Document, selector: string, count: number, msg?: string): void {
             this.numberOfAsserts++;
             DomAssert.assertElementsCount(document, selector, count, msg);
         }
 
-        protected assertElementHasAttribute(element: Element, attributeName: string, msg: string = this._undefined): void {
+        protected assertElementHasAttribute(element: Element, attributeName: string, msg?: string): void {
             this.numberOfAsserts++;
             DomAssert.assertElementHasAttribute(element, attributeName, msg);
         }
 
-        protected assertElementNotHasAttribute(element: Element, attributeName: string, msg: string = this._undefined): void {
+        protected assertElementNotHasAttribute(element: Element, attributeName: string, msg?: string): void {
             this.numberOfAsserts++;
             DomAssert.assertElementNotHasAttribute(element, attributeName, msg);
         }
@@ -52,7 +52,7 @@ namespace FreeElephants.TSxUnit {
             return new DocumentBuilder();
         }
 
-        protected getFakeDocumentEventBuilder(document: Document, eventInterface: string, eventType: string) {
+        protected getFakeDocumentEventBuilder(document: Document, eventInterface: string, eventType: string): DocumentEventBuilder {
             return new DocumentEventBuilder(document, eventInterface, eventType);
         }
     }
