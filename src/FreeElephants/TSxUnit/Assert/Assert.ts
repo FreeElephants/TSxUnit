@@ -25,13 +25,22 @@ namespace FreeElephants.TSxUnit.Assert {
             }
         }
 
-        public static assertEquals(expected, actual, msg: string = "Failed asserting that two objects are equals. "): void {
+        public static assertEquals(expected, actual, msg: string): void {
+            let descriptionLines = [
+                "Failed asserting that two objects are equals.",
+                "--- Expected",
+                "+++ Actual",
+                "@@ @@",
+                "- " +  expected,
+                "+ " + actual
+            ];
+            let failureMessage = MessageProcessor.concatFailureMessageWithDescription(msg, descriptionLines.join("\n"));
             if (expected instanceof Object && actual instanceof Object) {
                 if (Comparator.isEquals(expected, actual) === false) {
-                    throw new FailedAssertionException(msg);
+                    throw new FailedAssertionException(failureMessage);
                 }
             } else if (expected != actual) {
-                throw new FailedAssertionException(msg);
+                throw new FailedAssertionException(failureMessage);
             }
         }
 
@@ -63,7 +72,27 @@ namespace FreeElephants.TSxUnit.Assert {
             }
         }
 
+        public static assertInstanceOf(expected, actual, msg: string) {
+            if (actual instanceof expected === false) {
+                let failureMessage = MessageProcessor.concatFailureMessageWithDescription(msg, "Failed asserting that object instance of " + expected.prototype.constructor.name);
+                throw new FailedAssertionException(failureMessage);
+            }
+        }
+
     }
+
+    class MessageProcessor {
+        public static concatFailureMessageWithDescription(msg: string, description: string): string {
+            if (msg) {
+                msg += "\n " + description;
+            } else {
+                msg = description;
+            }
+
+            return msg;
+        }
+    }
+
 
     /**
      * Thanks to Joshua Clanton and his Drips:

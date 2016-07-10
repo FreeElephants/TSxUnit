@@ -58,6 +58,11 @@ namespace FreeElephants.TSxUnit {
             Assert.assertContains(needle, haystack, msg);
         }
 
+        protected assertInstanceOf(expected, actual, msg?: string) : void {
+            this.numberOfAsserts++;
+            Assert.assertInstanceOf(expected, actual, msg);
+        }
+
         public getNumberOfAssertions(): number {
             return this.numberOfAsserts;
         }
