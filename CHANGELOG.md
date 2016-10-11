@@ -6,6 +6,24 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.10.0 - 2016-09-02
+### Added
+- `--debug` run option (log4js integration) on suite building and running.  
+
+### Changed
+- Workflow was changed, see README for actual info.  
+
+### Renamed
+- Base class TestUnit -> AbstractUnitTestCase
+- DocumentTestCase -> AbstractDocumentTestCase
+
+### Internal
+- Use class imports and modules instead references and namespaces.
+- Change logic of test suite launcher building.
+- Use npm @types instead typings tool. 
+- Upgrade to typescript 2.0
+- Refactoring in all internal classes. 
+
 ## v0.7.0 - 2016-07-10
 ### Added
 - assertInstanceOf(): tested with abstract and non TS classes. TS interfaces can not be handled by language design =(    

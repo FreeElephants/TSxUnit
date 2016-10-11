@@ -13,8 +13,6 @@
 
 ### In Your Project
 
-Dependencies and pre-requirements: installed type definitions for node in your project. 
-
 See sample of usage: [in CalcTestExample project](https://github.com/FreeElephants/CalcTestExample). 
 
 1. Install ts-x-unit with npm
@@ -23,50 +21,45 @@ See sample of usage: [in CalcTestExample project](https://github.com/FreeElephan
     $ npm install ts-x-unit --save-dev
     ```
 
-2. Copy assets to your project. `assets` folder contains same templates:   
-        1. pre-configured `tsconfig.json` for test files compilation   
-        2. bootstrap files with reference to ts-x-unit library files  
-        3. `.gitignore` file for compiled files (but it renamed on npm publishing: https://github.com/npm/npm/issues/3763 bug)
-
+2. Add next tasks to npm scripts:
+    3.1. Task for build suite cases launch map from your test-classes:
     ```
-    $  cp -r node_modules/ts-x-unit/assets/. tests/ && mv tests/.npmignore tests/.gitignore
-    ```
-
-3. Add next tasks to npm scripts:  
-    3.1. Task for build LaunchMap from your test-classes:      
-    ```
-    "launch-builder": "launch-builder", 
+    "suite-builder": "suite-builder",
     ```  
     3.2. Update LaunchMap and compile all tests before run tests:  
     ```
-    "pretest": "launch-builder tests/ && tsc -p tests/",  
+    "pretest": "suite-builder tests/ && tsc",
     ```  
-    3.3. Run compiled test code:  
+    3.3. Run tests in suite:
     ```
-    "test": "node tests/tests.js"
+    "test": "node tests/suite.js"
     ```
     
 Now, you can use one simple command `npm test` for rebuild and run you tests!
 
 ### Conventions: 
-Your test-classes must extend FreeElephants.TSxUnit.TestCase or FreeElephants.TSxUnit.DocumentTestCase and end with "Test.ts". 
-Test methods in must be starting with "test".
+Your test-classes must:
+1. extend on of next base classes:
+    - AbstractUnitTestCase
+    - AbstractDocumentTestCase
+2. end with "Test.ts", for example `FooBarTest.ts`
+3. test methods must be starting with "test" prefix, for example `public testCalculateValue(){}`
  
 ### Workflow
-#### FreeElephants.TSxUnit.TestCase
-Abstract class TestCase has basic assertions and can be useful for unit-testing environment independent or Node.js code. 
-You can use mockBuilder for prepare Fake objects, based on abstract or normal TypeScript classes and JavaScript Objects, if You need it.  
+#### AbstractUnitTestCase
+Base test class has basic assertions and can be useful for unit-testing environment independent (or Node.js code). 
+You can use mockBuilder for prepare Fake objects, based on abstract or normal TypeScript classes and JavaScript Objects. 
 This Builder based on [JSMockito](https://github.com/cleishm/jsmockito). 
   
-#### FreeElephants.TSxUnit.DocumentTestCase 
-Abstract class DocumentTestCase extend TestCase and designed for test client-side code.
+#### AbstractDocumentTestCase
+AbstractDocumentTestCase extend AbstractUnitTestCase and designed for test client-side code.
 It contain assertions for DOM inspection, like assertElementHasClass(), assertElementExists(), assertElementsCount() etc.
 For create faked Document use DocumentBuilder: it can prepare document with HTML-fixture from local file or url. 
 DocumentEventBuilder provide API for building Fake DOM-Events. 
 This implementation based on [jsdom](https://github.com/tmpvar/jsdom). 
 
 #### How it's work? 
-After your complite all installation steps, npm task `test` in your package.json run file tests/tests.js. 
+After your complite all installation steps, npm task `test` in your package.json run file tests/suite.js.
 Pretest task call LaunchBuilder: it collect all *Test.ts files, generate map of test cases and compile all test code from TS to JS.
 
 ### For Contributors: 
@@ -77,11 +70,10 @@ Clone this repo:
 $ git clone git@github.com:FreeElephants/TSxUnit.git 
 ```
 
-Install TS tools and dependencies:
+Install dependencies:
 
 ```
-$ npm install 
-$ npm typings install
+$ npm install
 ```
 
 To run tests use:

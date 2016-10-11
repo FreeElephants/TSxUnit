@@ -1,21 +1,17 @@
 {
   "compilerOptions": {
-    "module": "amd",
-    "target": "es3",
-    "out": "index.js",
+    "module": "commonjs",
+    "target": "es5",
     "sourceMap": true,
-    "removeComments": true
+    "newLine": "LF",
+    "outDir": "dist",
+    "declaration": true,
+    "rootDir": "src"
   },
   "exclude": [
-    "assets",
-    "bin",
     "node_modules",
     "tests",
-    "src/reference.ext.ts",
-    "index.js",
-    "index.d.ts",
-    "src/launch-builder.ts",
-    "typings/browser.d.ts",
-    "typings/browser"
+    "dist",
+    "bin"
   ]
 }

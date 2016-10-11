@@ -1,8 +1,0 @@
-{
-  "compilerOptions": {
-    "module": "amd",
-    "rootDir": "../src",
-    "moduleResolution": "node",
-    "out": "tests/tests.js"
-  }
-}
