@@ -6,7 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
-## v0.10.0 - 2016-09-02
+## v0.10.1 - 2016-10-11
+### Internal
+- Add prepublish task for compile bin file. 
+
+## v0.10.0 - 2016-10-11
 ### Added
 - `--debug` run option (log4js integration) on suite building and running.  
 
