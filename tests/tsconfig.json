@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "module": "amd",
-    "rootDir": "../src",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "out": "tests/tests.js"
-  }
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true
+  },
+  "exclude": [
+  ]
 }

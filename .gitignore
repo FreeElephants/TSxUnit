@@ -6,9 +6,9 @@ node_modules
 typings
 
 # compiled output
-bin/launch-builder.js
-index.js
-index.d.ts
+dist/
+*.js
+*.js.map
 
 # locally tested npm package build
 *.tgz

@@ -1,46 +1,35 @@
 {
   "name": "ts-x-unit",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:FreeElephants/TSxUnit.git"
-  },
-  "description": "xUnit for TypeScript projects",
-  "keywords": [
-    "xUnit",
-    "ts",
-    "typescript"
+  "version": "0.9.0",
+  "main": "dist/index.js",
+  "typings": "dist/index",
+  "files": [
+    "bin/suite-builder",
+    "bin/suite-builder.js",
+    "dist/"
   ],
-  "author": "samizdam",
-  "license": "BSD-2-Clause",
   "scripts": {
-    "tsc": "tsc",
-    "typings": "typings",
-    "istanbul": "istanbul",
-    "remap-istanbul": "remap-istanbul",
     "build": "echo 'Lucy in the sky with diamonds'",
-    "pretest": "npm run build-launch-builder && node bin/launch-builder.js tests/ && tsc -p tests/",
-    "build-launch-builder": "tsc @tsxunit-launch-builder.config",
-    "test": "node tests/tests.js",
-    "coverage": "istanbul cover tests/tests.js && remap-istanbul --input coverage/coverage.json --output coverage/html-report --type html"
+    "tsc": "tsc",
+    "compile-builder": "tsc bin/suite-builder-int.ts",
+    "build-suite-launcher": "node bin/suite-builder-int.js tests/ && tsc tests/suite.ts",
+    "pretest": "tsc && npm run compile-builder && npm run build-suite-launcher",
+    "test": "node tests/suite.js"
   },
   "bin": {
-    "launch-builder": "bin/launch-builder"
-  },
-  "main": "build/index.js",
-  "typescript": {
-    "definition": "build/index.d.ts"
+    "suite-builder": "bin/suite-builder"
   },
   "dependencies": {
-    "istanbul": "^0.4.2",
-    "jsdom": "^9.3.0",
+    "@types/node": "*",
+    "@types/log4js": "0.0.32",
+    "jsdom": "^9.4.5",
     "jsmockito": "^1.0.5",
-    "remap-istanbul": "^0.5.1",
-    "sync-request": "^3.0.1",
-    "typescript": "1.8.9",
-    "typings": "1.3.1"
+    "log4js": "0.6.*",
+    "minimist": "1.2.*",
+    "sync-request": "^3.0.1"
   },
-  "version": "0.7.0",
   "devDependencies": {
-    "tslint": "^3.7.1"
+    "tslint": "3.15.*",
+    "typescript": "^2.0"
   }
 }
