@@ -14,7 +14,8 @@
     "compile-builder": "tsc bin/suite-builder-int.ts",
     "build-suite-launcher": "node bin/suite-builder-int.js tests/ && tsc tests/suite.ts",
     "pretest": "tsc && npm run compile-builder && npm run build-suite-launcher",
-    "test": "node tests/suite.js"
+    "test": "node tests/suite.js",
+    "prepublish": "tsc bin/suite-builder.ts"
   },
   "bin": {
     "suite-builder": "bin/suite-builder"
