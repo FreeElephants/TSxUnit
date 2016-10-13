@@ -82,10 +82,6 @@ export class Runner {
             this.passedList.add(test);
             this.printer.printSuccess();
         } catch (e) {
-            // TODO: check now failed assertions not catch here as FailedAssertionException.
-            // see https://github.com/Microsoft/TypeScript/issues/10166
-            // and http://stackoverflow.com/questions/33870684/why-doesnt-instanceof-work-on-instances-of-error-subclasses-under-babel-node
-            // earlier it's work fine =(
             if (e instanceof FailedAssertionException) {
                 this.failedList.add(test, e);
                 this.printer.printFail();

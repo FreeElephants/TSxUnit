@@ -1,76 +1,67 @@
-// namespace FreeElephants.TSxUnit.Test {
-//
-//     import BaseException = FreeElephants.TSxUnit.Exception.BaseException;
-
-    import {BaseException} from "../Exception/BaseException";
+import {BaseException} from "../Exception/BaseException";
 import {ResultAdapterInterface} from "./ResultAdapterInterface";
+
 export abstract class AbstractResultAdapter implements ResultAdapterInterface {
 
-        /**
-         *
-         * @param result
-         * @returns ResultAdapterInterface
-         */
-        public static create(result) {
-            let adapter: ResultAdapterInterface;
-            if (result instanceof BaseException) {
-                adapter = new ExceptionAdapter(result);
-            } else if (result instanceof Error) {
-                adapter = new ErrorAdapter(result);
-            } else {
-                adapter = new PassedAdapter();
-            }
-            return adapter;
+    public static create(result): ResultAdapterInterface {
+        let adapter: ResultAdapterInterface;
+        if (result instanceof BaseException) {
+            adapter = new ExceptionAdapter(result);
+        } else if (result instanceof Error) {
+            adapter = new ErrorAdapter(result);
+        } else {
+            adapter = new PassedAdapter();
         }
-
-        abstract getMessage(): string;
-
-        abstract getStack(): string;
+        return adapter;
     }
 
-    class PassedAdapter extends AbstractResultAdapter {
-        public getMessage(): string {
-            return "Passed";
-        }
+    abstract getMessage(): string;
 
-        public getStack(): string {
-            return;
-        }
+    abstract getStack(): string;
+}
+
+class PassedAdapter extends AbstractResultAdapter {
+    public getMessage(): string {
+        return "Passed";
     }
 
-    class ExceptionAdapter extends AbstractResultAdapter {
+    public getStack(): string {
+        return;
+    }
+}
 
-        protected result: BaseException;
+class ExceptionAdapter extends AbstractResultAdapter {
 
-        constructor(result: BaseException) {
-            super();
-            this.result = result;
-        }
+    protected result: BaseException;
 
-        public getMessage(): string {
-            return this.result.getMessage();
-        }
-
-        public getStack(): string {
-            return this.result.getStack();
-        }
+    constructor(result: BaseException) {
+        super();
+        this.result = result;
     }
 
-    class ErrorAdapter extends AbstractResultAdapter {
-
-        protected result: Error;
-
-        constructor(result: Error) {
-            super();
-            this.result = result;
-        }
-
-        public getMessage(): string {
-            return this.result.message;
-        }
-
-        public getStack(): string {
-            return this.result.stack;
-        }
+    public getMessage(): string {
+        return this.result.getMessage();
     }
-// }
+
+    public getStack(): string {
+        return this.result.getStack();
+    }
+}
+
+class ErrorAdapter extends AbstractResultAdapter {
+
+    protected result: Error;
+
+    constructor(result: Error) {
+        super();
+        this.result = result;
+    }
+
+    public getMessage(): string {
+        return this.result.message;
+    }
+
+    public getStack(): string {
+        return this.result.stack;
+    }
+}
