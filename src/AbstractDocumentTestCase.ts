@@ -1,6 +1,6 @@
 /**
  * Base class for DOM interaction testing.
- */ 
+ */
 import {AbstractUnitTestCase} from "./index";
 import {DomAssert} from "./Assert/index";
 import {DocumentBuilder, DocumentEventBuilder} from "./Mock/index";

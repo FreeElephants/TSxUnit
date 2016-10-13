@@ -6,6 +6,7 @@
 [![npm version](https://badge.fury.io/js/ts-x-unit.svg)](https://github.com/FreeElephants/TSxUnit/releases)
 [![Downloads](https://img.shields.io/npm/dm/ts-x-unit.svg)](https://npmjs.org/package/ts-x-unit)
 [![bitHound Overall Score](https://www.bithound.io/github/FreeElephants/TSxUnit/badges/score.svg)](https://www.bithound.io/github/FreeElephants/TSxUnit)
+[![codecov](https://codecov.io/gh/FreeElephants/TSxUnit/branch/master/graph/badge.svg)](https://codecov.io/gh/FreeElephants/TSxUnit)
 
 ## Usage
 
