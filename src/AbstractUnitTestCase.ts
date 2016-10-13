@@ -35,6 +35,11 @@ export class AbstractUnitTestCase {
         Assert.assertSame(expected, actual, msg);
     }
 
+    protected assertNotSame(expected, actual, msg?: string): void {
+        this.numberOfAsserts++;
+        Assert.assertNotSame(expected, actual, msg);
+    }
+
     protected assertNull(expr, msg?: string): void {
         this.numberOfAsserts++;
         Assert.assertNull(expr, msg);

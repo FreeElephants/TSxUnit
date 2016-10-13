@@ -12,7 +12,6 @@ export abstract class AbstractDocumentTestCase extends AbstractUnitTestCase {
         DomAssert.assertElementExists(doc, selector, msg);
     }
 
-
     protected assertElementNotExists(doc: Document, selector: string, msg?: string): void {
         this.numberOfAsserts++;
         DomAssert.assertElementNotExists(doc, selector, msg);

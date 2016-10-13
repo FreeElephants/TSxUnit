@@ -6,6 +6,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.11.0 - 2016-10-13
+### Added
+- assertNotSame
+
+### Internal
+- Coverage with [remap-]istanbul: use npm run coverage. 
+- Codecov integration
+- Change scripts in package.json.  
+
 ## v0.10.1 - 2016-10-11
 ### Internal
 - Add prepublish task for compile bin file. 

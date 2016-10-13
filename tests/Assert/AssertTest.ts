@@ -47,6 +47,10 @@ export class AssertTest extends AbstractUnitTestCase {
         this.assertSame(baz, baz);
     }
 
+    public testAssertNotSame() {
+        this.assertNotSame("foo", "bar");
+    }
+
     public testAssertNotNull() {
         this.assertNotNull("foo");
     }

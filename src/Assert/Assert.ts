@@ -50,6 +50,13 @@ export class Assert {
         }
     }
 
+    public static assertNotSame(expected: any, actual: any, msg: string) {
+        if (expected === actual) {
+            let description = "Failed asserting that objects are not same. ";
+            MessageProcessor.handleFailedAssertion(msg, description);
+        }
+    }
+
     public static assertNotNull(expr, msg: string): void {
         if (expr === null) {
             let description = "Failed asserting that value is not null. ";
@@ -84,7 +91,6 @@ export class Assert {
             MessageProcessor.handleFailedAssertion(msg, description);
         }
     }
-
 }
 
 /**
