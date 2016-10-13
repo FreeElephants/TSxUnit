@@ -3,7 +3,6 @@
 
 # vendors
 node_modules
-typings
 
 # compiled output
 dist/

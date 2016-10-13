@@ -1,6 +1,6 @@
 verbose: false
 instrumentation:
-    root: tests/
+    root: .
 reporting:
     print: summary
     reports:

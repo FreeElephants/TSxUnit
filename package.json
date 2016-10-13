@@ -2,27 +2,37 @@
   "name": "ts-x-unit",
   "version": "0.10.1",
   "main": "dist/index.js",
-  "typings": "dist/index",
+  "typings": "dist/index.d.ts",
   "files": [
     "bin/suite-builder",
     "bin/suite-builder.js",
     "dist/"
   ],
+  "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:FreeElephants/TSxUnit.git"
+  },
   "scripts": {
-    "build": "echo 'Lucy in the sky with diamonds'",
     "tsc": "tsc",
+    "build": "tsc",
     "compile-builder": "tsc bin/suite-builder-int.ts",
+    "clear-tests": "rm tests/*.js && rm tests/*.js.map",
     "build-suite-launcher": "node bin/suite-builder-int.js tests/ && tsc tests/suite.ts",
-    "pretest": "tsc && npm run compile-builder && npm run build-suite-launcher",
+    "pretest": "npm run build && npm run compile-builder && npm run build-suite-launcher",
     "test": "node tests/suite.js",
-    "prepublish": "tsc bin/suite-builder.ts"
+    "aftertest": "npm run clear-tests",
+    "prepublish": "tsc bin/suite-builder.ts",
+    "istanbul": "istanbul",
+    "remap-istanbul": "remap-istanbul",
+    "coverage": "rm -rf coverage/* && istanbul cover tests/suite.js && remap-istanbul --input coverage/coverage.json --output coverage/html-report --type html && remap-istanbul --input coverage/coverage.json --output coverage/coverage-final.json"
   },
   "bin": {
     "suite-builder": "bin/suite-builder"
   },
   "dependencies": {
-    "@types/node": "*",
     "@types/log4js": "0.0.32",
+    "@types/node": "*",
     "jsdom": "^9.4.5",
     "jsmockito": "^1.0.5",
     "log4js": "0.6.*",
@@ -30,6 +40,8 @@
     "sync-request": "^3.0.1"
   },
   "devDependencies": {
+    "istanbul": "^0.4.5",
+    "remap-istanbul": "^0.7.0",
     "tslint": "3.15.*",
     "typescript": "^2.0"
   }

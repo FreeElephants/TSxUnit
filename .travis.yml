@@ -10,6 +10,10 @@ before_script:
 script:
     - "npm test"
 
+after_success:
+    - "npm run coverage"
+    - bash <(curl -s https://codecov.io/bash)
+
 deploy:
     provider: npm
     api_key: $NPMJS_COM_API_TOCKEN
