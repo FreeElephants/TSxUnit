@@ -130,6 +130,20 @@ export class AssertTest extends AbstractUnitTestCase {
         this.assertNotSame("foo", "bar");
     }
 
+    public testAssertNotSameFail() {
+        let expectedException;
+
+        try {
+            this.assertNotSame(1, 1, "oops!");
+        } catch (e) {
+            expectedException = e;
+        } finally {
+            this.assertInstanceOf(FailedAssertionException, expectedException);
+            let message = expectedException.getMessage();
+            this.assertContains("oops!\nFailed asserting that objects are not same. ", message);
+        }
+    }
+
     public testAssertNotNull() {
         this.assertNotNull("foo");
     }
