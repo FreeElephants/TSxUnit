@@ -35,7 +35,7 @@ export class TestCaseMethod {
         this.result = AbstractResultAdapter.create(result);
     }
 
-    public getResult(): ResultAdapterInterface{
+    public getResult(): ResultAdapterInterface {
         return this.result;
     }
 
