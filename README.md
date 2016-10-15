@@ -86,4 +86,10 @@ $ npm test
 This script (re-)build launch-builder tool, update LaunchMap, compile and run tests, compute coverage. 
 See package.json for details. 
 
+### Test coverage (interactive)
+
+Click on graph, and it will opens separately. You can click any rectangle to see code coverage of represented class.
+
+![Test coverage grapth](https://codecov.io/gh/FreeElephants/TSxUnit/branch/master/graphs/tree.svg "Test coverage graph")
+
 See [ROADMAP](ROADMAP.md) for planned features. 
