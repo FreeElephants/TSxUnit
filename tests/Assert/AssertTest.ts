@@ -16,7 +16,8 @@ export class AssertTest extends AbstractUnitTestCase {
             expectedException = e;
         } finally {
             this.assertInstanceOf(FailedAssertionException, expectedException);
-            this.assertEquals("oops!\nFailed asserting that 'false' is true. ", expectedException.getMessage());
+            let message = expectedException.getMessage();
+            this.assertEquals("oops!\nFailed asserting that 'false' is true. ", message);
         }
     }
 
@@ -32,7 +33,8 @@ export class AssertTest extends AbstractUnitTestCase {
             expectedException = e;
         } finally {
             this.assertInstanceOf(FailedAssertionException, expectedException);
-            this.assertEquals("oops!\nFailed asserting that 'true' is false. ", expectedException.getMessage());
+            let message = expectedException.getMessage();
+            this.assertEquals("oops!\nFailed asserting that 'true' is false. ", message);
         }
     }
 
@@ -48,7 +50,8 @@ export class AssertTest extends AbstractUnitTestCase {
             expectedException = e;
         } finally {
             this.assertInstanceOf(FailedAssertionException, expectedException);
-            this.assertEquals("oops!\nFailed asserting that 'true' is undefined. ", expectedException.getMessage());
+            let message = expectedException.getMessage();
+            this.assertEquals("oops!\nFailed asserting that 'true' is undefined. ", message);
         }
     }
 
@@ -156,7 +159,8 @@ export class AssertTest extends AbstractUnitTestCase {
             expectedException = e;
         } finally {
             this.assertInstanceOf(FailedAssertionException, expectedException);
-            this.assertContains("ooops!\nFailed asserting that value is not null.", expectedException.getMessage());
+            let message = expectedException.getMessage();
+            this.assertContains("ooops!\nFailed asserting that value is not null.", message);
         }
     }
 
@@ -172,7 +176,8 @@ export class AssertTest extends AbstractUnitTestCase {
             expectedException = e;
         } finally {
             this.assertInstanceOf(FailedAssertionException, expectedException);
-            this.assertContains("ooops!\nFailed asserting that 'true' is null.", expectedException.getMessage());
+            let message = expectedException.getMessage();
+            this.assertContains("ooops!\nFailed asserting that 'true' is null.", message);
         }
     }
 
@@ -222,10 +227,11 @@ export class AssertTest extends AbstractUnitTestCase {
         try {
             this.assertInstanceOf(AbstractUnitTestCase, foo);
         } catch (e) {
-            expectedException = <FailedAssertionException> e;
-            this.assertEquals(e.getMessage(), "Failed asserting that object instance of AbstractUnitTestCase. ");
+            expectedException = e;
         } finally {
             this.assertInstanceOf(FailedAssertionException, expectedException, "FailedAssertionException wasn't throw on wrong assertion. ");
+            let message = expectedException.getMessage();
+            this.assertEquals("Failed asserting that object instance of AbstractUnitTestCase. ", message);
         }
     }
 
