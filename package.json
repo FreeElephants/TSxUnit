@@ -3,6 +3,16 @@
   "version": "0.11.1",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "description": "TypeScript xUnit testing framework implementation. ",
+  "author": "samizdam <samizdam@inbox.ru>",
+  "bugs": "https://github.com/FreeElephants/TSxUnit/issues",
+  "keywords": [
+    "xunit",
+    "typescript",
+    "TDD",
+    "unit testing",
+    "testing framework"
+  ],
   "files": [
     "bin/suite-builder",
     "bin/suite-builder.js",
