@@ -6,6 +6,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.11.1 - 2016-10-15
+### Changed
+- assertions show expected value in message on fails. 
+- some messages in DomAssert. 
+
+### Internal
+- use 6 version for node typings.
+- npm script coverage call pretest now. 
+
 ## v0.11.0 - 2016-10-13
 ### Added
 - assertNotSame
