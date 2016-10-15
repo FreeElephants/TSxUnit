@@ -34,7 +34,7 @@ export class DomAssert {
 
     public static assertElementHasAttribute(element: Element, attributeName: string, msg: string): void {
         if (!element.hasAttribute(attributeName)) {
-            MessageProcessor.handleFailedAssertion(msg, "Failed asserting that element has attribute '" + attributeName + "'. ")
+            MessageProcessor.handleFailedAssertion(msg, "Failed asserting that element has attribute '" + attributeName + "'. ");
         }
     }
 
