@@ -4,7 +4,23 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "description": "TypeScript xUnit testing framework implementation. ",
-  "author": "samizdam <samizdam@inbox.ru>",
+  "author": {
+    "name": "samizdam",
+    "email": "<samizdam@inbox.ru>",
+    "url": "https://github.com/samizdam"
+  },
+  "contributors": [
+    {
+      "name": "samizdam",
+      "email": "<samizdam@inbox.ru>",
+      "url": "https://github.com/samizdam"
+    },
+    {
+      "name": "Petr Karmashev",
+      "email": "smonkl@bk.ru",
+      "url": "https://github.com/Vehsamrak"
+    }
+  ],
   "bugs": "https://github.com/FreeElephants/TSxUnit/issues",
   "keywords": [
     "xunit",
