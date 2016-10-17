@@ -4,6 +4,7 @@ import {ObjectBuilder} from "./Mock";
 export class AbstractUnitTestCase {
 
     protected numberOfAsserts: number = 0;
+    protected expectExceptionClass;
 
     protected assertTrue(expr: boolean, msg?: string): void {
         this.numberOfAsserts++;
@@ -53,6 +54,21 @@ export class AbstractUnitTestCase {
     protected assertInstanceOf(expected, actual, msg?: string): void {
         this.numberOfAsserts++;
         Assert.assertInstanceOf(expected, actual, msg);
+    }
+
+    protected expectException(exceptionClass, msg?: string): void {
+        this.numberOfAsserts++;
+        this.expectExceptionClass = exceptionClass;
+    }
+
+    public hasExpectedException(): boolean {
+        return new Boolean(this.expectExceptionClass) == true;
+    }
+
+    public pullExpectedException() {
+        let expectedException = this.expectExceptionClass;
+        this.expectExceptionClass = null;
+        return expectedException;
     }
 
     public getNumberOfAssertions(): number {

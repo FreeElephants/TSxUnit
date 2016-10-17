@@ -235,6 +235,11 @@ export class AssertTest extends AbstractUnitTestCase {
         }
     }
 
+    public testExpectException() {
+        this.expectException(Error);
+        throw new Error();
+    }
+
 }
 
 abstract class AbstractFoo {

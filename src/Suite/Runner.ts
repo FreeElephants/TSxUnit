@@ -75,14 +75,24 @@ export class Runner {
     }
 
     protected runTestCaseMethod(test: TestCaseMethod) {
-        test.getTestCase().setUp();
+        let testCase = test.getTestCase();
+        testCase.setUp();
 
         try {
             test.execute();
             this.passedList.add(test);
             this.printer.printSuccess();
         } catch (e) {
-            if (e instanceof FailedAssertionException) {
+            if (testCase.hasExpectedException()) {
+                let expectedException = testCase.pullExpectedException();
+                if (e instanceof expectedException) {
+                    this.passedList.add(test);
+                    this.printer.printSuccess();
+                } else {
+                    this.failedList.add(test, new FailedAssertionException("Expected exception not throws. "));
+                    this.printer.printFail();
+                }
+            } else if (e instanceof FailedAssertionException) {
                 this.failedList.add(test, e);
                 this.printer.printFail();
             } else {
@@ -91,7 +101,7 @@ export class Runner {
             }
         }
 
-        test.getTestCase().tearDown();
+        testCase.tearDown();
     }
 
     private getTestMethods(testCase: AbstractUnitTestCase) {
@@ -99,7 +109,9 @@ export class Runner {
         let testMethods = Object.getOwnPropertyNames(testCasePrototype)
             .filter(function (propName: string) {
                 let candidate = testCasePrototype[propName];
-                return typeof candidate === "function" && this.testCaseMethodDetector.isTestMethod(testCase, propName);
+                let isFunction: boolean = typeof candidate === "function";
+                let isTestMethod: boolean = this.testCaseMethodDetector.isTestMethod(testCase, propName);
+                return isFunction && isTestMethod;
             }, this);
         return testMethods;
     }

@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added 
+- AbstractUnitTestCase.expectedException() method. TODO: use container for compact exception with user defined message.  
+
 See [ROADMAP](ROADMAP.md).
 
 ## v0.11.1 - 2016-10-15
