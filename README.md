@@ -14,7 +14,7 @@
 
 ### In Your Project
 
-See sample of usage: [in CalcTestExample project](https://github.com/FreeElephants/CalcTestExample). 
+See sample of usage: [in micro-bench project](https://github.com/FreeElephants/micro-bench/tree/master/tests).
 
 1. Install ts-x-unit with npm
 
@@ -47,6 +47,9 @@ Your test-classes must:
 3. test methods must be starting with "test" prefix, for example `public testCalculateValue(){}`
  
 ### Workflow
+
+See more info in [project wiki on github](https://github.com/FreeElephants/TSxUnit/wiki). 
+
 #### AbstractUnitTestCase
 Base test class has basic assertions and can be useful for unit-testing environment independent (or Node.js code). 
 You can use mockBuilder for prepare Fake objects, based on abstract or normal TypeScript classes and JavaScript Objects. 
@@ -87,6 +90,50 @@ This script (re-)build launch-builder tool, update LaunchMap, compile and run te
 See package.json for details. 
 
 ### Test coverage (interactive)
+
+#### Cover your project with TSxUnit
+
+Install `istanbul` and `remap-istanbul`:
+```
+npm install istanbul remap-istanbul --save-dev
+```
+
+Add task as npm script:
+```
+"scripts": {
+    ...
+    "istanbul": "istanbul",
+    "remap-istanbul": "remap-istanbul",
+    "coverage": "npm run pretest && rm -rf coverage/* && istanbul cover tests/suite.js && remap-istanbul --input coverage/coverage.json --output coverage/html-report --type html && remap-istanbul --input coverage/coverage.json --output coverage/coverage-final.json"
+    ...
+```
+
+Configure you tests transpiling with sourceMap:
+```
+# update package.json
+"scripts": {
+    ...
+    "pretest": "suite-builder tests/ && tsc && tsc tests/suite.ts --sourceMap",
+    ...
+}
+
+# or via tests/tsconfig.json:
+{
+  "compilerOptions": {
+    ...
+    "sourceMap": true
+    ...
+    },
+    ...
+}
+```
+
+Now you can run tests with coverage analysis:
+```
+npm run coverage
+```
+
+#### Current state of project
 
 Click on graph, and it will opens separately. You can click any rectangle to see code coverage of represented class.
 

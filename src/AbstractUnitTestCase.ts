@@ -1,9 +1,11 @@
 import {Assert} from "./Assert";
 import {ObjectBuilder} from "./Mock";
+import {ExpectedExceptionContainer} from "./Test/ExpectedExceptionContainer";
 
 export class AbstractUnitTestCase {
 
     protected numberOfAsserts: number = 0;
+    protected expectExceptionContainer = null;
 
     protected assertTrue(expr: boolean, msg?: string): void {
         this.numberOfAsserts++;
@@ -55,10 +57,27 @@ export class AbstractUnitTestCase {
         Assert.assertInstanceOf(expected, actual, msg);
     }
 
+    protected expectException(exceptionClass, msg?: string): void {
+        this.numberOfAsserts++;
+        this.expectExceptionContainer = new ExpectedExceptionContainer(exceptionClass, msg);
+    }
+
+    public hasExpectedException(): boolean {
+        return this.expectExceptionContainer !== null;
+    }
+
+    /**
+     * @internal
+     */
+    public pullExpectedException(): ExpectedExceptionContainer {
+        let expectedException = this.expectExceptionContainer;
+        this.expectExceptionContainer = null;
+        return expectedException;
+    }
+
     public getNumberOfAssertions(): number {
         return this.numberOfAsserts;
     }
-
 
     /**
      * This method will be called once before class cases be executed
@@ -84,12 +103,7 @@ export class AbstractUnitTestCase {
     public tearDownAfterClass(): void {
     }
 
-    /**
-     *
-     * @param className
-     * @returns {T}
-     */
-    protected getMockBuilder(className) {
+    protected getMockBuilder(className): ObjectBuilder {
         return new ObjectBuilder(className);
     }
 

@@ -6,6 +6,7 @@ import {TestCaseMethodDetectionStrategyInterface, TestCaseMethodNameBasedDetecto
 import {PrinterInterface} from "./../Printer/index";
 import {Summary} from "./";
 import {LoggerInterface} from "./../Logger/LoggerInterface";
+import {MessageProcessor} from "../Assert/MessageProcessor";
 
 export class Runner {
 
@@ -75,14 +76,35 @@ export class Runner {
     }
 
     protected runTestCaseMethod(test: TestCaseMethod) {
-        test.getTestCase().setUp();
+        let testCase = test.getTestCase();
+        testCase.setUp();
 
         try {
             test.execute();
-            this.passedList.add(test);
-            this.printer.printSuccess();
+            if (testCase.hasExpectedException()) {
+                let expectedException = testCase.pullExpectedException();
+                MessageProcessor.handleFailedAssertion(expectedException.getUserMessage(), "Expected exception not throws. ");
+            } else {
+                this.passedList.add(test);
+                this.printer.printSuccess();
+            }
         } catch (e) {
-            if (e instanceof FailedAssertionException) {
+            if (testCase.hasExpectedException()) {
+                let expectedExceptionContainer = testCase.pullExpectedException();
+                let expectedExceptionType = expectedExceptionContainer.getExceptionType();
+                if (e instanceof expectedExceptionType) {
+                    this.passedList.add(test);
+                    this.printer.printSuccess();
+                } else {
+                    let expectedTypeName = expectedExceptionType.name;
+                    let actualTypeName = e.constructor.name;
+                    let description = `'${expectedTypeName}' expected, but '${actualTypeName}' is throws. `;
+                    let userMessage = expectedExceptionContainer.getUserMessage();
+                    let failedMessage = MessageProcessor.concatFailureMessageWithDescription(userMessage, description);
+                    this.failedList.add(test, new FailedAssertionException(failedMessage));
+                    this.printer.printFail();
+                }
+            } else if (e instanceof FailedAssertionException) {
                 this.failedList.add(test, e);
                 this.printer.printFail();
             } else {
@@ -91,7 +113,7 @@ export class Runner {
             }
         }
 
-        test.getTestCase().tearDown();
+        testCase.tearDown();
     }
 
     private getTestMethods(testCase: AbstractUnitTestCase) {
@@ -99,7 +121,9 @@ export class Runner {
         let testMethods = Object.getOwnPropertyNames(testCasePrototype)
             .filter(function (propName: string) {
                 let candidate = testCasePrototype[propName];
-                return typeof candidate === "function" && this.testCaseMethodDetector.isTestMethod(testCase, propName);
+                let isFunction: boolean = typeof candidate === "function";
+                let isTestMethod: boolean = this.testCaseMethodDetector.isTestMethod(testCase, propName);
+                return isFunction && isTestMethod;
             }, this);
         return testMethods;
     }
