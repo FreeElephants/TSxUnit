@@ -10,7 +10,8 @@ export class ScannerTest extends AbstractUnitTestCase {
         let scanner = new Scanner(logger);
         let map = scanner.getSuiteMap("Suite/", __dirname + "/..");
         let thisFilename = __filename.replace("ScannerTest.js", "ScannerTest.ts");
-        this.assertSame(map[thisFilename], "./ScannerTest.ts");
+        let thisFilenameInMap = thisFilename.replace(/\\/g, "\\\\");
+        this.assertSame(map[thisFilenameInMap], "./ScannerTest.ts");
     }
 
     public testGetSourceMapPathNotExistsException() {

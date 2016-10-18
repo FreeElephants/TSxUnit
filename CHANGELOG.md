@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.12.1 - 2016-10-18
+### Fixed
+- `error TS1125: Hexadecimal digit expected` bug: escaping in suite map item paths. 
+
 ## v0.12.0 - 2016-10-18
 ### Added 
 - AbstractUnitTestCase.expectedException() method.    
