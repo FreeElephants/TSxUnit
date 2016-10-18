@@ -37,7 +37,7 @@ export class Scanner {
                 if (this.isTestUnit(itemPath)) {
                     this.debug("handle unit test " + itemName);
                     let itemRelPwdPath = itemPath.replace(absoluteSuitePath, "./");
-                    itemRelPwdPath = itemRelPwdPath.replace("\\", "/"); // Windows case
+                    itemRelPwdPath = itemRelPwdPath.replace(/\\/g, "/"); // Windows case
                     this.collectedTestCases[itemPath.replace(/\\/g, "\\\\")] = itemRelPwdPath;
                 }
             } else if (itemStat.isDirectory()) {
