@@ -14,7 +14,7 @@
 
 ### In Your Project
 
-See sample of usage: [in micro-bench project](https://github.com/FreeElephants/micro-bench).
+See sample of usage: [in micro-bench project](https://github.com/FreeElephants/micro-bench/tree/master/tests).
 
 1. Install ts-x-unit with npm
 
@@ -47,6 +47,9 @@ Your test-classes must:
 3. test methods must be starting with "test" prefix, for example `public testCalculateValue(){}`
  
 ### Workflow
+
+See more info in [project wiki on github](https://github.com/FreeElephants/TSxUnit/wiki). 
+
 #### AbstractUnitTestCase
 Base test class has basic assertions and can be useful for unit-testing environment independent (or Node.js code). 
 You can use mockBuilder for prepare Fake objects, based on abstract or normal TypeScript classes and JavaScript Objects. 

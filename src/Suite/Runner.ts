@@ -6,6 +6,7 @@ import {TestCaseMethodDetectionStrategyInterface, TestCaseMethodNameBasedDetecto
 import {PrinterInterface} from "./../Printer/index";
 import {Summary} from "./";
 import {LoggerInterface} from "./../Logger/LoggerInterface";
+import {MessageProcessor} from "../Assert/MessageProcessor";
 
 export class Runner {
 
@@ -80,16 +81,27 @@ export class Runner {
 
         try {
             test.execute();
-            this.passedList.add(test);
-            this.printer.printSuccess();
-        } catch (e) {
             if (testCase.hasExpectedException()) {
                 let expectedException = testCase.pullExpectedException();
-                if (e instanceof expectedException) {
+                MessageProcessor.handleFailedAssertion(expectedException.getUserMessage(), "Expected exception not throws. ");
+            } else {
+                this.passedList.add(test);
+                this.printer.printSuccess();
+            }
+        } catch (e) {
+            if (testCase.hasExpectedException()) {
+                let expectedExceptionContainer = testCase.pullExpectedException();
+                let expectedExceptionType = expectedExceptionContainer.getExceptionType();
+                if (e instanceof expectedExceptionType) {
                     this.passedList.add(test);
                     this.printer.printSuccess();
                 } else {
-                    this.failedList.add(test, new FailedAssertionException("Expected exception not throws. "));
+                    let expectedTypeName = expectedExceptionType.name;
+                    let actualTypeName = e.constructor.name;
+                    let description = `'${expectedTypeName}' expected, but '${actualTypeName}' is throws. `;
+                    let userMessage = expectedExceptionContainer.getUserMessage();
+                    let failedMessage = MessageProcessor.concatFailureMessageWithDescription(userMessage, description);
+                    this.failedList.add(test, new FailedAssertionException(failedMessage));
                     this.printer.printFail();
                 }
             } else if (e instanceof FailedAssertionException) {
