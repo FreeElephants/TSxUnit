@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.12.0 - 2016-10-18
+### Added 
+- AbstractUnitTestCase.expectedException() method.    
+
 ## v0.11.1 - 2016-10-15
 ### Changed
 - assertions show expected value in message on fails. 

@@ -205,14 +205,8 @@ export class AssertTest extends AbstractUnitTestCase {
     }
 
     public testAssertContainsInvalidArgument() {
-        let expectedException;
-        try {
-            this.assertContains("needle", 100500);
-        } catch (e) {
-            expectedException = e;
-        } finally {
-            this.assertInstanceOf(InvalidArgumentException, expectedException);
-        }
+        this.expectException(InvalidArgumentException);
+        this.assertContains("needle", 100500);
     }
 
     public testAssertInstanceOf() {
