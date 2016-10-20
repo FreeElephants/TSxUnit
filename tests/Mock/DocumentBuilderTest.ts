@@ -1,5 +1,6 @@
 import {AbstractDocumentTestCase} from "../../dist/AbstractDocumentTestCase";
 import {DocumentBuilder} from "../../dist/Mock/index";
+
 export class DocumentBuilderTest extends AbstractDocumentTestCase {
 
     public testSetSource() {
@@ -21,5 +22,7 @@ export class DocumentBuilderTest extends AbstractDocumentTestCase {
         let builder: DocumentBuilder = new DocumentBuilder();
         let doc: Document = builder.setContentFromUrl("http://example.com").getMock();
         this.assertEquals("Example Domain", doc.title);
+        this.assertInstanceOf(Document, doc);
     }
+
 }

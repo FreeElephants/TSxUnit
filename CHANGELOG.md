@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## Fixed
+- Window and Document stubbed with jsdom now instances of Window and Document.  
+
 See [ROADMAP](ROADMAP.md).
 
 ## v0.12.2 - 2016-10-18

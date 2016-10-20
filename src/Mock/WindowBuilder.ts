@@ -2,8 +2,6 @@ import {AbstractGuiStubBuilder} from "./index";
 
 export class WindowBuilder extends AbstractGuiStubBuilder {
 
-    private location: string;
-
     public setLocation(location: string, loadSource: boolean = false): this {
         this.location = location;
         if (loadSource) {
@@ -20,6 +18,9 @@ export class WindowBuilder extends AbstractGuiStubBuilder {
         };
 
         let dom = this.createDom(this.source, config);
-        return dom.defaultView;
+        let window = this.createNewWindow();
+        // it's HACK for construct windows that instance of Window and contains jsdom stubbed document.
+        window["_document"] = dom;
+        return window;
     }
 }
