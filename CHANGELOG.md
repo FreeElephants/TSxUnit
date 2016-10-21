@@ -6,6 +6,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Fixed
 - Window and Document stubbed with jsdom now instances of Window and Document.  
+TODO: 
+check instance of for more DOM interfaces: HTMLInputElement, Event, etc. 
 
 See [ROADMAP](ROADMAP.md).
 
