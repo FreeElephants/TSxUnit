@@ -37,7 +37,6 @@ export class DocumentBuilderTest extends AbstractDocumentTestCase {
         <body id="body">
             <a id="anchor" href="/"></a>
             <area shape="" coords="" href="/" alt="" id="area">
-            <audio id="audio"></audio>
             <br id="br"/>
             <base id="base" href="/">
             <button id="button"></button>
@@ -86,26 +85,9 @@ export class DocumentBuilderTest extends AbstractDocumentTestCase {
             <script id="script"></script>
             <shadow id="shadow"></shadow>
             <span id="span"></span>
-            <table id="table">
-                <caption id="tableCaption"></caption>
-                <thead id="thead"></thead>
-                <tfoot id="tfoot"></tfoot>
-                <tbody id="tbody">
-                <colgroup id="colgroup">
-                    <col id="col" span="2">
-                </colgroup>
-                <tr id="tr">
-                    <th id="th"></th>
-                    <td id="td"></td>
-                </tr>
-                </tbody>
-            </table>
             <textarea id="textarea"></textarea>
             <time id="time"></time>
-             <video id="video">
-                <source id="source"/>
-                <track id="track" src="foo"/>
-            </video>
+            <foobarchik id="foobarchik">HTMLUnknownElement</foobarchik>
          </body>
          </html>
         `);
@@ -113,7 +95,6 @@ export class DocumentBuilderTest extends AbstractDocumentTestCase {
 
         this.assertInstanceOf(HTMLAnchorElement, doc.getElementById("anchor"));
         this.assertInstanceOf(HTMLAreaElement, doc.getElementById("area"));
-        this.assertInstanceOf(HTMLAudioElement, doc.getElementById("audio"));
         this.assertInstanceOf(HTMLBRElement, doc.getElementById("br"));
         this.assertInstanceOf(HTMLBaseElement, doc.getElementById("base"));
         this.assertInstanceOf(HTMLBodyElement, doc.getElementById("body"));
@@ -124,12 +105,12 @@ export class DocumentBuilderTest extends AbstractDocumentTestCase {
         /**
          * Not present in TypeScript
          */
-        this.assertInstanceOf(HTMLDataElement, doc.getElementById("data"));
+        // this.assertInstanceOf(HTMLDataElement, doc.getElementById("data"));
         this.assertInstanceOf(HTMLDataListElement, doc.getElementById("datalist"));
         /**
          * Not supported in TypeScript
          */
-        this.assertInstanceOf(HTMLDialogElement, doc.getElementById("dialog"));
+        // this.assertInstanceOf(HTMLDialogElement, doc.getElementById("dialog"));
         this.assertInstanceOf(HTMLDivElement, doc.getElementById("div"));
         this.assertInstanceOf(Document, doc);
         this.assertInstanceOf(HTMLDocument, doc);
@@ -164,8 +145,6 @@ export class DocumentBuilderTest extends AbstractDocumentTestCase {
         this.assertInstanceOf(HTMLLegendElement, doc.getElementById("legend"));
         this.assertInstanceOf(HTMLLinkElement, doc.getElementById("link"));
         this.assertInstanceOf(HTMLMapElement, doc.getElementById("map"));
-        this.assertInstanceOf(HTMLMediaElement, doc.getElementById("audio"));
-        this.assertInstanceOf(HTMLMediaElement, doc.getElementById("video"));
         this.assertInstanceOf(HTMLMetaElement, doc.getElementById("meta"));
         this.assertInstanceOf(HTMLMeterElement, doc.getElementById("meter"));
         this.assertInstanceOf(HTMLModElement, doc.getElementById("ins"));
@@ -189,7 +168,7 @@ export class DocumentBuilderTest extends AbstractDocumentTestCase {
          * https://developer.mozilla.org/ru/docs/Web/API/HTMLOutputElement#Specifications
          * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
          */
-        this.assertInstanceOf(HTMLOutputElement, doc.getElementById("output"));
+        // this.assertInstanceOf(HTMLOutputElement, doc.getElementById("output"));
         this.assertInstanceOf(HTMLParagraphElement, doc.getElementById("paragraph"));
         this.assertInstanceOf(HTMLParamElement, doc.getElementById("param"));
         /**
@@ -208,9 +187,38 @@ export class DocumentBuilderTest extends AbstractDocumentTestCase {
          * See https://developer.mozilla.org/ru/docs/Web/API/HTMLShadowElement
          */
         // this.assertInstanceOf(HTMLShadowElement, doc.getElementById("shadow"));
-        this.assertInstanceOf(HTMLSourceElement, doc.getElementById("source"));
         this.assertInstanceOf(HTMLSpanElement, doc.getElementById("span"));
         this.assertInstanceOf(HTMLStyleElement, doc.getElementById("style"));
+
+        this.assertInstanceOf(HTMLTextAreaElement, doc.getElementById("textarea"));
+        /**
+         * Not present in TypeScript, but support well by jsdom
+         */
+        // this.assertInstanceOf(HTMLTimeElement, doc.getElementById("time"));
+        this.assertInstanceOf(HTMLTitleElement, doc.getElementById("title"));
+        this.assertInstanceOf(HTMLUnknownElement, doc.getElementById("foobarchik"));
+        this.assertInstanceOf(HTMLUListElement, doc.getElementById("ul"));
+    }
+
+    public testTableDomInterfaces() {
+        let builder: DocumentBuilder = new DocumentBuilder();
+        builder.setSource(`
+            <table id="table">
+                <caption id="tableCaption"></caption>
+                <thead id="thead"></thead>
+                <tfoot id="tfoot"></tfoot>
+                <tbody id="tbody">
+                <colgroup id="colgroup">
+                    <col id="col" span="2">
+                </colgroup>
+                <tr id="tr">
+                    <th id="th"></th>
+                    <td id="td"></td>
+                </tr>
+                </tbody>
+            </table>
+        `);
+        let doc = builder.getMock();
         this.assertInstanceOf(HTMLTableCaptionElement, doc.getElementById("tableCaption"));
         this.assertInstanceOf(HTMLTableCellElement, doc.getElementById("th"));
         this.assertInstanceOf(HTMLTableCellElement, doc.getElementById("td"));
@@ -223,13 +231,25 @@ export class DocumentBuilderTest extends AbstractDocumentTestCase {
         this.assertInstanceOf(HTMLTableSectionElement, doc.getElementById("thead"));
         this.assertInstanceOf(HTMLTableSectionElement, doc.getElementById("tfoot"));
         this.assertInstanceOf(HTMLTableSectionElement, doc.getElementById("tbody"));
-        this.assertInstanceOf(HTMLTextAreaElement, doc.getElementById("textarea"));
-        /**
-         * Not present in Typesctipt, but support well by jsdom
-         */
-        this.assertInstanceOf(HTMLTimeElement, doc.getElementById("time"));
-        this.assertInstanceOf(HTMLTitleElement, doc.getElementById("title"));
+    }
+
+    public testMediaDomInterfaces() {
+        let builder: DocumentBuilder = new DocumentBuilder();
+        builder.setSource(`
+            <audio id="audio"></audio>
+            <video id="video">
+                <source id="source"/>
+                <track id="track" src="foo"/>
+            </video>
+        `);
+        let doc: Document = builder.getMock();
+
+        this.assertInstanceOf(HTMLAudioElement, doc.getElementById("audio"));
+        this.assertInstanceOf(HTMLMediaElement, doc.getElementById("audio"));
+        this.assertInstanceOf(HTMLMediaElement, doc.getElementById("video"));
+        this.assertInstanceOf(HTMLSourceElement, doc.getElementById("source"));
         this.assertInstanceOf(HTMLTrackElement, doc.getElementById("track"));
-        this.assertInstanceOf(HTMLUListElement, doc.getElementById("ul"));
+        this.assertInstanceOf(HTMLVideoElement, doc.getElementById("video"));
+
     }
 }
