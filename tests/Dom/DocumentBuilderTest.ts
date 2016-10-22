@@ -1,7 +1,7 @@
-import {AbstractDocumentTestCase} from "../../dist/AbstractDocumentTestCase";
-import {DocumentBuilder} from "../../dist/Mock/index";
+import {AbstractDomTestCase} from "../../dist";
+import {DocumentBuilder} from "../../dist/Dom/index";
 
-export class DocumentBuilderTest extends AbstractDocumentTestCase {
+export class DocumentBuilderTest extends AbstractDomTestCase {
 
     public testSetSource() {
         let builder: DocumentBuilder = new DocumentBuilder();
@@ -20,7 +20,7 @@ export class DocumentBuilderTest extends AbstractDocumentTestCase {
 
     public testCreateFromUrl() {
         let builder: DocumentBuilder = new DocumentBuilder();
-        let doc: Document = builder.setContentFromUrl("http://example.com").getMock();
+        let doc: Document = builder.setLocation("http://example.com", true).getMock();
         this.assertEquals("Example Domain", doc.title);
     }
 

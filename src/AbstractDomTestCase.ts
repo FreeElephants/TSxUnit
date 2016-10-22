@@ -3,9 +3,9 @@
  */
 import {AbstractUnitTestCase} from "./index";
 import {DomAssert} from "./Assert/index";
-import {DocumentBuilder} from "./Mock";
+import {DocumentBuilder, WindowBuilder, LocationBuilder} from "./Dom";
 
-export abstract class AbstractDocumentTestCase extends AbstractUnitTestCase {
+export abstract class AbstractDomTestCase extends AbstractUnitTestCase {
 
     protected assertElementExists(doc: Document, selector: string, msg?: string): void {
         this.numberOfAsserts++;
@@ -44,5 +44,13 @@ export abstract class AbstractDocumentTestCase extends AbstractUnitTestCase {
 
     protected getDocumentBuilder(): DocumentBuilder {
         return new DocumentBuilder();
+    }
+
+    protected getWindowBuilder(): WindowBuilder {
+        return new WindowBuilder();
+    }
+
+    protected getLocationBuilder(): LocationBuilder {
+        return new LocationBuilder();
     }
 }

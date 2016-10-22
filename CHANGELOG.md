@@ -6,6 +6,18 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.14.0 - 2016-10-22
+### Renamed
+- AbstractDomTestCase -> AbstractDomTestCase
+
+### Added
+- Method `AbstractDomTestCase.getLocationBuilder(): LocationBuilder`: for window.location testing.  
+- Method `AbstractDomTestCase.getWindowBuilder(): LocationBuilder`: for window.location testing.  
+
+### Changed
+- Unify Dom Builders interfaces. 
+
+
 ## v0.13.0 - 2016-10-22
 ### Renamed
 - AbstractDocumentTestCase method `getFakeDocumentBuilder()` -> `getDocumentBuilder()`
