@@ -1,7 +1,7 @@
 import {AbstractUnitTestCase} from "../../dist/index";
 import {ObjectBuilder} from "../../dist/Mock/index";
 
-export class BuilderTest extends AbstractUnitTestCase {
+export class ObjectBuilderTest extends AbstractUnitTestCase {
 
     public testMockAbstract() {
         let builder: ObjectBuilder = new ObjectBuilder(AbstractFoo);

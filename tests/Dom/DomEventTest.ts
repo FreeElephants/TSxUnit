@@ -1,6 +1,6 @@
-import {AbstractDocumentTestCase} from "../../dist/index";
+import {AbstractDomTestCase} from "../../dist";
 
-export class DomEventTest extends AbstractDocumentTestCase {
+export class DomEventTest extends AbstractDomTestCase {
 
     public testCancelableFalseByDefault() {
         let doc = this.createDocumentWithCheckboxAndLabel();

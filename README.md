@@ -40,9 +40,9 @@ Now, you can use one simple command `npm test` for rebuild and run you tests!
 
 ### Conventions: 
 Your test-classes must:
-1. extend on of next base classes:
+1. extend one of next base classes:
     - AbstractUnitTestCase
-    - AbstractDocumentTestCase
+    - AbstractDomTestCase
 2. end with "Test.ts", for example `FooBarTest.ts`
 3. test methods must be starting with "test" prefix, for example `public testCalculateValue(){}`
  
@@ -55,15 +55,15 @@ Base test class has basic assertions and can be useful for unit-testing environm
 You can use mockBuilder for prepare Fake objects, based on abstract or normal TypeScript classes and JavaScript Objects. 
 This Builder based on [JSMockito](https://github.com/cleishm/jsmockito). 
   
-#### AbstractDocumentTestCase
-AbstractDocumentTestCase extend AbstractUnitTestCase and designed for test client-side code.
+#### AbstractDomTestCase
+AbstractDomTestCase extend AbstractUnitTestCase and designed for test client-side code.
 It contain assertions for DOM inspection, like assertElementHasClass(), assertElementExists(), assertElementsCount() etc.
-For create faked Document use DocumentBuilder: it can prepare document with HTML-fixture from local file or url. 
-DocumentEventBuilder provide API for building Fake DOM-Events. 
+For create virtual Document use DocumentBuilder: it can prepare document with HTML-fixture from local file or url. 
+Also you can create Window with WindowBuilder and Location object with LocationBuilder, dispatch Events and make most manipulation with DOM in tests runned from CLI, without real browser.    
 This implementation based on [jsdom](https://github.com/tmpvar/jsdom). 
 
 #### How it's work? 
-After your complite all installation steps, npm task `test` in your package.json run file tests/suite.js.
+After your complete all installation steps, npm task `test` in your package.json run file tests/suite.js.
 Pretest task call LaunchBuilder: it collect all *Test.ts files, generate map of test cases and compile all test code from TS to JS.
 
 ### For Contributors: 

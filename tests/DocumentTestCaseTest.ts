@@ -1,19 +1,19 @@
-import {AbstractDocumentTestCase} from "../dist/index";
+import {AbstractDomTestCase} from "../dist/index";
 
-export class DocumentTestCaseTest extends AbstractDocumentTestCase {
+export class DocumentTestCaseTest extends AbstractDomTestCase {
 
     public testAssertElementExists() {
-        let fakeBuilder = this.getDocumentBuilder();
-        fakeBuilder.setSource("<p id='foo'></p>");
-        let doc: Document = fakeBuilder.getMock();
+        let documentBuilder = this.getDocumentBuilder();
+        documentBuilder.setSource("<p id='foo'></p>");
+        let doc: Document = documentBuilder.getMock();
 
         this.assertElementExists(doc, "#foo");
     }
 
     public testAssertElementNotExists() {
-        let fakeBuilder = this.getDocumentBuilder();
-        fakeBuilder.setSource("<p id='foo'></p>");
-        let doc: Document = fakeBuilder.getMock();
+        let documentBuilder = this.getDocumentBuilder();
+        documentBuilder.setSource("<p id='foo'></p>");
+        let doc: Document = documentBuilder.getMock();
 
         this.assertElementNotExists(doc, "#bar");
     }

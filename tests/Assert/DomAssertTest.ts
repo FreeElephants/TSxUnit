@@ -1,7 +1,7 @@
-import {AbstractDocumentTestCase} from "../../dist/index";
+import {AbstractDomTestCase} from "../../dist/index";
 import {FailedAssertionException} from "../../dist/Assert/FailedAssertionException";
 
-export class DomAssertTest extends AbstractDocumentTestCase {
+export class DomAssertTest extends AbstractDomTestCase {
 
     public testAssertElementsCount() {
         let doc: Document = this.getFooHtmlFixture();

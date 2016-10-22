@@ -1,6 +1,6 @@
-import {BuilderInterface} from "./index";
+import {BuilderInterface} from "../Mock";
 
-export abstract class AbstractGuiStubBuilder implements BuilderInterface {
+export abstract class AbstractDomBuilder implements BuilderInterface {
 
     protected source: string;
     protected request = require("sync-request");
@@ -14,6 +14,16 @@ export abstract class AbstractGuiStubBuilder implements BuilderInterface {
     }
 
     public abstract getMock();
+
+    public setLocation(location: string, loadSource: boolean = false): this {
+        this.location = location;
+        if (loadSource) {
+            let request = this.request("GET", location);
+            let html: string = request.getBody();
+            this.setSource(html);
+        }
+        return this;
+    }
 
     public setSource(source: string): this {
         this.source = source;
