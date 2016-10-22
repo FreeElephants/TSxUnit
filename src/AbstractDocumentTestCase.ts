@@ -3,7 +3,7 @@
  */
 import {AbstractUnitTestCase} from "./index";
 import {DomAssert} from "./Assert/index";
-import {DocumentBuilder, DocumentEventBuilder} from "./Mock/index";
+import {DocumentBuilder} from "./Mock";
 
 export abstract class AbstractDocumentTestCase extends AbstractUnitTestCase {
 
@@ -42,11 +42,7 @@ export abstract class AbstractDocumentTestCase extends AbstractUnitTestCase {
         DomAssert.assertElementNotHasAttribute(element, attributeName, msg);
     }
 
-    protected getFakeDocumentBuilder(): DocumentBuilder {
+    protected getDocumentBuilder(): DocumentBuilder {
         return new DocumentBuilder();
-    }
-
-    protected getFakeDocumentEventBuilder(document: Document, eventInterface: string, eventType: string): DocumentEventBuilder {
-        return new DocumentEventBuilder(document, eventInterface, eventType);
     }
 }

@@ -189,7 +189,6 @@ export class DocumentBuilderTest extends AbstractDocumentTestCase {
         // this.assertInstanceOf(HTMLShadowElement, doc.getElementById("shadow"));
         this.assertInstanceOf(HTMLSpanElement, doc.getElementById("span"));
         this.assertInstanceOf(HTMLStyleElement, doc.getElementById("style"));
-
         this.assertInstanceOf(HTMLTextAreaElement, doc.getElementById("textarea"));
         /**
          * Not present in TypeScript, but support well by jsdom
