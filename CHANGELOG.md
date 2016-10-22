@@ -6,6 +6,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.13.0 - 2016-10-22
+### Renamed
+- AbstractDocumentTestCase method `getFakeDocumentBuilder()` -> `getDocumentBuilder()`
+
+### Removed
+- DocumentEventBuilder (DomEventBuilder): use constructors instead.   
+
+### Fixed
+- Window and Document stubbed with jsdom now instances of Window and Document.  
+- More built-in Dom interfaces supported by TypeScript and jsdom now can be checked with `instanceof`.  
+
 ## v0.12.2 - 2016-10-18
 ### Fixed
 - Preparing suite import paths (Windows slash escaping).

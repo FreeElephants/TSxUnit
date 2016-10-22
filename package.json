@@ -60,6 +60,7 @@
     "@types/log4js": "0.0.32",
     "@types/node": "^6.0",
     "jsdom": "^9.4.5",
+    "jsdom-global": "^2.1.0",
     "jsmockito": "^1.0.5",
     "log4js": "0.6.*",
     "minimist": "1.2.*",

@@ -11,7 +11,7 @@ export class DomAssertTest extends AbstractDocumentTestCase {
     public testAssertElementsCountFail() {
         let expectedException;
         try {
-            let doc: Document = this.getFakeDocumentBuilder().getMock();
+            let doc: Document = this.getDocumentBuilder().getMock();
             this.assertElementsCount(doc, "li.foo", 1, "oops!");
         } catch (e) {
             expectedException = e;
@@ -25,7 +25,7 @@ export class DomAssertTest extends AbstractDocumentTestCase {
     public testElementExistsFail() {
         let expectedException;
         try {
-            let doc: Document = this.getFakeDocumentBuilder().getMock();
+            let doc: Document = this.getDocumentBuilder().getMock();
             this.assertElementExists(doc, "#foo", "oops!");
         } catch (e) {
             expectedException = e;
@@ -119,6 +119,6 @@ export class DomAssertTest extends AbstractDocumentTestCase {
     }
 
     private getFooHtmlFixture() {
-        return this.getFakeDocumentBuilder().setSourceFromFile("tests/fixtures/foo.html").getMock();
+        return this.getDocumentBuilder().setSourceFromFile("tests/fixtures/foo.html").getMock();
     }
 }
