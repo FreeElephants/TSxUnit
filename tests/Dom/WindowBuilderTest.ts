@@ -11,4 +11,12 @@ export class WindowBuilderTest extends AbstractDomTestCase {
         this.assertEquals("Example Domain", window.document.title);
     }
 
+
+    public testChangeUrl() {
+        let windowBuilder = this.getWindowBuilder();
+        let jsdom = windowBuilder.getJsdom();
+        let window = windowBuilder.setLocation("http://example.com").getMock();
+        jsdom.changeURL(window, "http://example.com/#hash");
+        this.assertSame("#hash", window.location.hash);
+    }
 }

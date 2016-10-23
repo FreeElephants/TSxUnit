@@ -13,6 +13,10 @@ export abstract class AbstractDomBuilder implements BuilderInterface {
         require("jsdom-global")();
     }
 
+    public getJsdom() {
+        return this.jsdom;
+    }
+
     public abstract getMock();
 
     public setLocation(location: string, loadSource: boolean = false): this {
@@ -35,6 +39,6 @@ export abstract class AbstractDomBuilder implements BuilderInterface {
     }
 
     public createNewWindow(): Window {
-        return new global["Window"]({ parsingMode: "html" , "url": this.location});
+        return new global["Window"]({parsingMode: "html", "url": this.location});
     }
 }

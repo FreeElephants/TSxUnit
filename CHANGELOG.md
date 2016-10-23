@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- Dom builders provide access to jsdom for low-level manipulation. For example WindowBuilder.getJsdom(). 
+
 See [ROADMAP](ROADMAP.md).
 
 ## v0.14.0 - 2016-10-22
