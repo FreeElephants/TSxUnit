@@ -8,9 +8,12 @@ export abstract class AbstractDomBuilder implements BuilderInterface {
     protected location: string;
 
     public constructor() {
-        let Window = require("jsdom/lib/jsdom/browser/Window");
-        global["Window"] = Window;
+        // jsdom-global get most dom interfaces as global defined constructors in runtime
         require("jsdom-global")();
+    }
+
+    public getJsdom() {
+        return this.jsdom;
     }
 
     public abstract getMock();
@@ -35,6 +38,7 @@ export abstract class AbstractDomBuilder implements BuilderInterface {
     }
 
     public createNewWindow(): Window {
-        return new global["Window"]({ parsingMode: "html" , "url": this.location});
+        let dom = this.createDom(this.source, {"url": this.location});
+        return dom.defaultView;
     }
 }

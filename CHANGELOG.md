@@ -4,6 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- Dom builders provide access to jsdom for low-level manipulation. For example WindowBuilder.getJsdom().
+- Spy objects: Visitor and CallsCounter. Factory methods in AbstractUnitTestCase: .createVisitor(), .createCallsCounter(). 
+
+### Removed
+- export jsdom Window to runtime: now window not instance of Window =(  
+
 See [ROADMAP](ROADMAP.md).
 
 ## v0.14.0 - 2016-10-22
