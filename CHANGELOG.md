@@ -6,6 +6,18 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 See [ROADMAP](ROADMAP.md).
 
+## v0.15.0 - 2016-10-24
+
+### Added
+- Dom builders provide access to jsdom for low-level manipulation. For example `WindowBuilder.getJsdom()`.
+- Spy objects: Visitor and CallsCounter. Factory methods in AbstractUnitTestCase: `.createVisitor()`, `.createCallsCounter()`. 
+
+### Removed
+- export jsdom Window to runtime: now window not instance of Window =(
+  
+### Fixed
+- `Window.onhashchange` event now triggered by set value to `window.location.hash`. 
+
 ## v0.14.0 - 2016-10-22
 ### Renamed
 - AbstractDomTestCase -> AbstractDomTestCase

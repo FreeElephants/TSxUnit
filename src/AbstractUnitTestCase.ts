@@ -1,6 +1,7 @@
 import {Assert} from "./Assert";
 import {ObjectBuilder} from "./Mock";
-import {ExpectedExceptionContainer} from "./Test/ExpectedExceptionContainer";
+import {ExpectedExceptionContainer} from "./Test";
+import {Visitor, CallsCounter} from "./Spy";
 
 export class AbstractUnitTestCase {
 
@@ -101,6 +102,14 @@ export class AbstractUnitTestCase {
      * This method will be called once after execution all test cases in this class
      */
     public tearDownAfterClass(): void {
+    }
+
+    protected createVisitor(): Visitor {
+        return new Visitor();
+    }
+
+    protected createCallsCounter(): CallsCounter {
+        return new CallsCounter();
     }
 
     protected getMockBuilder(className): ObjectBuilder {
