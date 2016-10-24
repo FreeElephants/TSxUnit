@@ -21,9 +21,9 @@ export class WindowBuilderTest extends AbstractDomTestCase {
         });
         window.location.hash = "#foo1";
         window.location.hash = "#foo2";
-
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
         setTimeout(() => {
-            this.assertSame(2, callsCounter.getCounter());
+            this.assertSame(3, callsCounter.getCounter());
         }, 100);
     }
 
