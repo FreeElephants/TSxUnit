@@ -6,17 +6,31 @@ export class WindowBuilderTest extends AbstractDomTestCase {
     public testStubWindowFromUrl() {
         let builder: WindowBuilder = this.getWindowBuilder();
         let window: Window = builder.setLocation("http://example.com", true).getMock();
-        this.assertInstanceOf(Window, window);
         this.assertEquals("example.com", window.location.host);
         this.assertEquals("Example Domain", window.document.title);
     }
 
 
-    public testChangeUrl() {
+    public testChangeHashEvent() {
         let windowBuilder = this.getWindowBuilder();
-        let jsdom = windowBuilder.getJsdom();
         let window = windowBuilder.setLocation("http://example.com").getMock();
-        jsdom.changeURL(window, "http://example.com/#hash");
-        this.assertSame("#hash", window.location.hash);
+        let callsCounter = this.createCallsCounter();
+        window.addEventListener("hashchange", () => {
+            callsCounter.call();
+        });
+        window.location.hash = "#foo1";
+        window.location.hash = "#foo2";
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+        setTimeout(() => {
+            this.assertSame(3, callsCounter.getCounter());
+        }, 100);
+    }
+
+    public testGetJsdom() {
+        let windowBuilder = this.getWindowBuilder();
+        let window = windowBuilder.getMock();
+        let jsdom = windowBuilder.getJsdom();
+        jsdom.changeURL(window, "http://example.com#foo");
+        this.assertSame("#foo", window.location.hash);
     }
 }
